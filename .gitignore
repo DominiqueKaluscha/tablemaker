@@ -1,0 +1,4 @@
+bower
+node_modules
+build
+config/aws.json
