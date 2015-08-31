@@ -1,9 +1,8 @@
-$input = $('#data-input');
-
 
 var TableFunctions = {
 
-	parseData: function(input) {
+	parseData: function() {
+		var input = document.getElementById('data-input').value;
 		var csv_array = input.split("\n");
 		var header = csv_array.shift();
 		header = header.split("\t");
@@ -20,7 +19,7 @@ var TableFunctions = {
 			data.push(d);
 		});
 
-		return data
+		console.log(data);
 
 	},
 
@@ -35,16 +34,23 @@ var TableFunctions = {
 
 
 
+var currentID = 0,
+	func = _.keys(TableFunctions),
+	nextBtn = document.getElementById('next'),
+	backBtn = document.getElementById('back');
+  
+nextBtn.addEventListener('click', function(){
+  
+	TableFunctions[func[currentID]]();
 
+	currentID++;
 
+});
+backBtn.addEventListener('click', function(){
+  
 
+  TableFunctions[func[currentID]]();
 
-$('#next').click(function(){
-	var results = parseData($input.val());
-
-	console.log(results);
+  currentID--;
 });
 
-$('#clear').click(function(){
-	$input.val('');
-});

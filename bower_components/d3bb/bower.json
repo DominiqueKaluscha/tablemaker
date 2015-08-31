@@ -1,0 +1,33 @@
+{
+  "name": "d3bb",
+  "description": "Marriage of Backbone.js and D3.js",
+  "version": "0.0.4",
+  "author": {
+    "name": "John Perry",
+    "email": "John.Perry@ajc.com"
+  },
+  "ignore": [
+    "examples",
+    "lib",
+    "node_modules",
+    "src",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    "bower.json",
+    "Gruntfile.js",
+    "index.html",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "underscore": "latest",
+    "backbone": "latest",
+    "d3": "latest"
+  },
+  "devDependencies": {
+    "jasmine": "1.3.1",
+    "sinon": "1.7.3"
+  }
+}
