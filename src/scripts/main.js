@@ -1,10 +1,19 @@
+$input = $('#data-input');
+
+$('#load').click(function(){
+	var results = parseData($input.val());
+});
+
+$('#clear').click(function(){
+	$input.val('');
+});
 
 
-	$('#load').click(function(){
-		$input = $('#data-input').val();
-		var results = parseData($input);
-		console.log(results);
-	});
+
+
+var checkData = function(data) {
+	
+};
 
 
 
