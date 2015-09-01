@@ -1,9 +1,11 @@
-$input = $('#data-input');
+var main = document.getElementById('main');
+var li = document.getElementsByClassName('header-li');
 
 
 var TableFunctions = {
 
-	parseData: function(input) {
+	inputData: function() {
+		var input = document.getElementById('data-input').value;
 		var csv_array = input.split("\n");
 		var header = csv_array.shift();
 		header = header.split("\t");
@@ -20,12 +22,38 @@ var TableFunctions = {
 			data.push(d);
 		});
 
-		return data
+		this.data = data;
+
+		var tpl = _.template('<h3>Choose which columns you want to keep</h3>'+
+		'<ul class="headers medium-block-grid-4">'+
+			'<% _.each(header, function(h) { %> ' +
+    			'<li><div class="header-li" id="<%= h %>"><%= h %></div></li>'+
+			'<% }); %>' +
+		'</ul>');
+
+		main.innerHTML = tpl({'header':header});
+
+
+		
+
+		_.each(li, function(l){
+			
+			l.addEventListener('click',function(){
+				if (!l.classList.contains('selected')){
+					l.classList.add('selected');
+				} else if (l.classList.contains('selected')){
+					l.classList.remove('selected');
+				}
+			});
+
+		});
 
 	},
 
-	checkData: function(data) {
-		
+	chooseData: function() {
+
+		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.id });
+
 	},
 
 }
@@ -35,16 +63,18 @@ var TableFunctions = {
 
 
 
-
-
-
-
-$('#next').click(function(){
-	var results = parseData($input.val());
-
-	console.log(results);
+var currentID = 0,
+	func = _.keys(TableFunctions),
+	nextBtn = document.getElementById('next'),
+	backBtn = document.getElementById('back');
+  
+nextBtn.addEventListener('click', function(){
+	TableFunctions[func[currentID]]();
+	currentID++;
 });
 
-$('#clear').click(function(){
-	$input.val('');
+backBtn.addEventListener('click', function(){
+	currentID--;
+	TableFunctions[func[currentID]]();
 });
+
