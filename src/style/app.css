@@ -3,9 +3,30 @@ h1 {
 	font-size:42px;
 }
 
+#main {
+	min-height:400px;
+}
+
 .row {
 	max-width:80%;
 }
+
+.headers{
+	margin-top:50px;
+}
+
+.headers li .header-li {
+	text-align:center;
+	padding:20px;
+	border:1px solid #333;
+	margin-bottom:10px;
+}
+.headers li .header-li:hover, .headers li .header-li.selected {
+	cursor:pointer;
+	background:#dedede;
+}
+
+
 
 #button-row {
 	text-align: center;
