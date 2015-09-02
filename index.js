@@ -1,13 +1,17 @@
-var express = require('express');
-var app = express();
-require('./router/main')(app);
+var express = require( "express" ),  
+    nunjucks = require( "nunjucks" ),
+    path = require( "path" ),
+    app = express(),
+    nunjucksEnv = new nunjucks.Environment( new nunjucks.FileSystemLoader( path.join( __dirname, '/src' )));
 
+app.use(express.static('src'));
 
-app.set('views',__dirname + '/src');
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+nunjucksEnv.express( app );
 
-
-var server = app.listen(3000, function(){
-	console.log("Express is running on port 3000");
+app.get('/', function(req, res){  
+    res.render( "index.html" );
 });
+
+app.listen(3003);
+
+console.log('Server running at http://127.0.0.1:3003/');
