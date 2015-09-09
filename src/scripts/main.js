@@ -1,80 +1,133 @@
-var main = document.getElementById('main');
-var li = document.getElementsByClassName('header-li');
+var li = document.getElementsByClassName('header-li'),
+	data, filtered, headers;
 
 
-var TableFunctions = {
 
-	inputData: function() {
-		var input = document.getElementById('data-input').value;
-		var csv_array = input.split("\n");
-		var header = csv_array.shift();
-		header = header.split("\t");
+var inputData = function(){
+	var	input = document.getElementById('data-input').value;	
+	var csv_array = input.split("\n");
+	var header = csv_array.shift();
+	headers = header.split("\t");
+	var _data = [];
 
-		var data = [];
-
-		_.each(csv_array, function(row){
-			row = row.split("\t");
-			var d = {};
-			_.each(row, function(r,i){
-				var this_header = header[i];
-				d[this_header] = r;
-			});
-			data.push(d);
+	_.each(csv_array, function(row){
+		row = row.split("\t");
+		var d = {};
+		_.each(row, function(r,i){
+			var this_header = headers[i];
+			d[this_header] = r;
 		});
+		_data.push(d);
+	});
 
-		this.data = data;
+	data = _data;
 
-		var tpl = _.template('<h3>Choose which columns you want to keep</h3>'+
-		'<ul class="headers medium-block-grid-4">'+
-			'<% _.each(header, function(h) { %> ' +
-    			'<li><div class="header-li" id="<%= h %>"><%= h %></div></li>'+
-			'<% }); %>' +
-		'</ul>');
+	var params = { search: _data };
 
-		main.innerHTML = tpl({'header':header});
+	$.get( '/tables', params, function(data){
+		console.log('sent!');
+	});
+
+	var main = document.getElementById('input1').children[0];
+	main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
+	var table = main.childNodes[0];
+	table.style.width  = "100%";
+
+	table.firstChild.innerHTML = '<tr/>';
 
 
+	headers.forEach(function(s){
+		table.firstChild.firstChild.innerHTML += '<th>'+s+'</th>'
+	});
+
+	// var v;
+    data.forEach(function(fd){
+    	table.lastChild.innerHTML += '<tr/>'
+    	_.each(fd, function(d){
+    		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
+    	});
+    });
+}
+		
+	
 		
 
-		_.each(li, function(l){
+
+		// var tpl = _.template('<% _.each(header, function(h) { %> ' +
+  //   	'<div class="header-li"><%= h %></div>'+
+		// '<% }); %>');
+
+		// var main = document.getElementById('input'+id).children[0];
+		// console.log(main);
+
+		// main.innerHTML = tpl({'header':header});
+
+		// _.each(li, function(l){
 			
-			l.addEventListener('click',function(){
-				if (!l.classList.contains('selected')){
-					l.classList.add('selected');
-				} else if (l.classList.contains('selected')){
-					l.classList.remove('selected');
-				}
-			});
+		// 	l.addEventListener('click',function(){
+		// 		if (!l.classList.contains('selected')){
+		// 			l.classList.add('selected');
+		// 		} else if (l.classList.contains('selected')){
+		// 			l.classList.remove('selected');
+		// 		}
+		// 	});
 
-		});
+		// });
 
-	},
+	// chooseData: function(id) {
 
-	chooseData: function() {
+	// 	var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML });
 
-		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.id });
+	// 	var filteredData = _.map( data, function(d) {  return _.pick(d, selected) } );
+	// 	var main = document.getElementById('input'+id).children[0];
+	// 	console.log(main);
 
-	},
+	// 	main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
+	// 	var table = main.childNodes[0];
+	// 	table.style.width  = "100%";
 
-}
+	// 	table.firstChild.innerHTML = '<tr/>';
+	// 	selected.forEach(function(s){
+	// 		table.firstChild.firstChild.innerHTML += '<th>'+s+'</th>'
+	// 	});
+
+	// 	// var v;
+	//     filteredData.forEach(function(fd){
+	//     	table.lastChild.innerHTML += '<tr/>'
+	//     	_.each(fd, function(d){
+	//     		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
+	//     	});
+	//     });
+
+	//     filtered = filteredData;
+
+
+	// },
+
+	// callAjax: function(){
+	// 	// $('button').click(function () {
+	//     $.post('/', {data: filtered}, function (data) {
+	//         console.log(data);
+	//     });
+	//     // }, 'json');
+	// }
 
 
 
-
-
-
-var currentID = 0,
-	func = _.keys(TableFunctions),
-	nextBtn = document.getElementById('next'),
+var nextBtn = document.getElementById('next'),
 	backBtn = document.getElementById('back');
   
 nextBtn.addEventListener('click', function(){
-	TableFunctions[func[currentID]]();
-	currentID++;
+	inputData();
+	var params = data;
+	$('#input0')
+		.animate({'opacity':'0.4'})
+		.delay(300)
+		.slideUp(400, function(){
+			$('#input1').fadeIn();
+		});
+
+
 });
 
-backBtn.addEventListener('click', function(){
-	currentID--;
-	TableFunctions[func[currentID]]();
-});
 
