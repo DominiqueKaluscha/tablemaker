@@ -16,13 +16,13 @@ h1 {
 	margin-top:50px;
 }
 
-.headers li .header-li {
+.header-li {
 	text-align:center;
-	padding:20px;
+	/*padding:20px;*/
 	border:1px solid #333;
 	margin-bottom:10px;
 }
-.headers li .header-li:hover, .headers li .header-li.selected {
+.header-li:hover, .header-li.selected {
 	cursor:pointer;
 	background:#dedede;
 }

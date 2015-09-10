@@ -3,106 +3,85 @@ var li = document.getElementsByClassName('header-li'),
 
 
 
-var inputData = function(){
-	var	input = document.getElementById('data-input').value;	
-	var csv_array = input.split("\n");
-	var header = csv_array.shift();
-	headers = header.split("\t");
-	var _data = [];
+var TableFunctions = {
 
-	_.each(csv_array, function(row){
-		row = row.split("\t");
-		var d = {};
-		_.each(row, function(r,i){
-			var this_header = headers[i];
-			d[this_header] = r;
+	inputData: function(id) {
+		var	input = document.getElementById('data-input').value;	
+		var csv_array = input.split("\n");
+		var header = csv_array.shift();
+		header = header.split("\t");
+
+		var _data = [];
+
+		_.each(csv_array, function(row){
+			row = row.split("\t");
+			var d = {};
+			_.each(row, function(r,i){
+				var this_header = header[i];
+				d[this_header] = r;
+			});
+			_data.push(d);
 		});
-		_data.push(d);
-	});
 
-	data = _data;
-
-	var params = { search: _data };
-
-	$.get( '/tables', params, function(data){
-		console.log('sent!');
-	});
-
-	var main = document.getElementById('input1').children[0];
-	main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
-	var table = main.childNodes[0];
-	table.style.width  = "100%";
-
-	table.firstChild.innerHTML = '<tr/>';
+		data = _data;
 
 
-	headers.forEach(function(s){
-		table.firstChild.firstChild.innerHTML += '<th>'+s+'</th>'
-	});
 
-	// var v;
-    data.forEach(function(fd){
-    	table.lastChild.innerHTML += '<tr/>'
-    	_.each(fd, function(d){
-    		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
-    	});
-    });
-}
-		
-	
-		
+		var tpl = _.template('<ul class="small-block-grid-3"><% _.each(header, function(h) { %> ' +
+    	'<li><div class="header-li"><%= h %></div></li>'+
+		'<% }); %></ul>');
 
+		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
+		console.log(main);
 
-		// var tpl = _.template('<% _.each(header, function(h) { %> ' +
-  //   	'<div class="header-li"><%= h %></div>'+
-		// '<% }); %>');
+		main.innerHTML = tpl({'header':header});
 
-		// var main = document.getElementById('input'+id).children[0];
-		// console.log(main);
-
-		// main.innerHTML = tpl({'header':header});
-
-		// _.each(li, function(l){
+		_.each(li, function(l){
 			
-		// 	l.addEventListener('click',function(){
-		// 		if (!l.classList.contains('selected')){
-		// 			l.classList.add('selected');
-		// 		} else if (l.classList.contains('selected')){
-		// 			l.classList.remove('selected');
-		// 		}
-		// 	});
+			l.addEventListener('click',function(){
+				if (!l.classList.contains('selected')){
+					l.classList.add('selected');
+				} else if (l.classList.contains('selected')){
+					l.classList.remove('selected');
+				}
+			});
 
-		// });
+		});
 
-	// chooseData: function(id) {
+	},
 
-	// 	var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML });
+	chooseData: function(id) {
 
-	// 	var filteredData = _.map( data, function(d) {  return _.pick(d, selected) } );
-	// 	var main = document.getElementById('input'+id).children[0];
-	// 	console.log(main);
+		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML });
 
-	// 	main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
-	// 	var table = main.childNodes[0];
-	// 	table.style.width  = "100%";
+		var filteredData = _.map( data, function(d) {  return _.pick(d, selected) } );
+		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
+		console.log(main);
 
-	// 	table.firstChild.innerHTML = '<tr/>';
-	// 	selected.forEach(function(s){
-	// 		table.firstChild.firstChild.innerHTML += '<th>'+s+'</th>'
-	// 	});
+		main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
+		var table = main.childNodes[0];
+		table.style.width  = "100%";
 
-	// 	// var v;
-	//     filteredData.forEach(function(fd){
-	//     	table.lastChild.innerHTML += '<tr/>'
-	//     	_.each(fd, function(d){
-	//     		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
-	//     	});
-	//     });
+		console.log(table.firstChild);
 
-	//     filtered = filteredData;
+		table.firstChild.innerHTML += '<tr/><tr/><tr/>';
+		selected.forEach(function(s){
+			table.firstChild.firstChild.innerHTML += '<th id="header_'+s+'"><input type="text" value="'+s+'"></th>';
+			table.firstChild.children[1].innerHTML += '<th id="type_'+s+'"><select><option value="text">Text</option><option value="number">Number</option></select></th>';
+		});
+
+		// var v;
+	    filteredData.forEach(function(fd){
+	    	table.lastChild.innerHTML += '<tr/>'
+	    	_.each(fd, function(d){
+	    		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
+	    	});
+	    });
+
+	    filtered = filteredData;
 
 
-	// },
+	},
 
 	// callAjax: function(){
 	// 	// $('button').click(function () {
@@ -112,22 +91,39 @@ var inputData = function(){
 	//     // }, 'json');
 	// }
 
+}
 
 
-var nextBtn = document.getElementById('next'),
+// $('#next').click(function(){
+// 	TableFunctions.inputData();
+// });
+
+var currentID = 0,
+	func = _.keys(TableFunctions),
+	nextBtn = document.getElementById('next'),
 	backBtn = document.getElementById('back');
   
 nextBtn.addEventListener('click', function(){
-	inputData();
-	var params = data;
-	$('#input0')
+	$('#input'+currentID)
 		.animate({'opacity':'0.4'})
-		.delay(300)
-		.slideUp(400, function(){
-			$('#input1').fadeIn();
-		});
+		.delay(400)
+		.slideUp(400, TableFunctions[func[currentID]](currentID+1));
 
+	console.log(func[currentID]);
+
+	if (currentID<(func.length)){
+		currentID++;
+		$('#input'+currentID).fadeIn();
+	}
 
 });
 
+backBtn.addEventListener('click', function(){
+	currentID--;
+	TableFunctions[func[currentID]]();
+});
 
+
+// $.get( '/tables', params, function(data){
+// 	console.log('sent!');
+// });
