@@ -66,8 +66,30 @@ var TableFunctions = {
 
 		table.firstChild.innerHTML += '<tr/><tr/><tr/>';
 		selected.forEach(function(s){
-			table.firstChild.firstChild.innerHTML += '<th id="header_'+s+'"><input type="text" value="'+s+'"></th>';
+			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><input type="text"/> <i id="save_'+s+'" class="fa fa-floppy-o"></i></div></th>';
 			table.firstChild.children[1].innerHTML += '<th id="type_'+s+'"><select><option value="text">Text</option><option value="number">Number</option></select></th>';
+
+		});
+
+		$('th.header-name .fa-pencil').click(function(){
+			$id = $(this).attr('id').replace('edit_','');
+			$th = $('#header_'+$id);
+			$th.addClass('edit-input');
+			$th.children('.header-view').hide();
+
+			$header_val = $th.children('.header-view').children('span').text();
+			$th.children('.header-input').children('input').val($header_val);
+			$th.children('.header-input').fadeIn();
+		})
+		$('th.header-name .fa-floppy-o').click(function(){
+			$id = $(this).attr('id').replace('save_','');
+			$th = $('#header_'+$id);
+			$th.removeClass('edit-input');
+
+			$input_val = $th.children('.header-input').children('input').val();
+			$th.children('.header-view').children('span').empty().append($input_val);
+			$th.children('.header-view').show();
+			$th.children('.header-input').fadeOut();
 		});
 
 		// var v;
