@@ -32,7 +32,6 @@ var TableFunctions = {
 		'<% }); %></ul>');
 
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
-		console.log(main);
 
 		main.innerHTML = tpl({'header':header});
 
@@ -56,17 +55,18 @@ var TableFunctions = {
 
 		var filteredData = _.map( data, function(d) {  return _.pick(d, selected) } );
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
-		console.log(main);
 
 		main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
 		var table = main.childNodes[0];
 		table.style.width  = "100%";
 
-		console.log(table.firstChild);
-
 		table.firstChild.innerHTML += '<tr/><tr/><tr/>';
+
+
+		// var headerName, editName, saveName;
+
 		selected.forEach(function(s){
-			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><input type="text"/> <i id="save_'+s+'" class="fa fa-floppy-o"></i></div></th>';
+			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
 			table.firstChild.children[1].innerHTML += '<th id="type_'+s+'"><select><option value="text">Text</option><option value="number">Number</option></select></th>';
 
 		});
@@ -78,18 +78,18 @@ var TableFunctions = {
 			$th.children('.header-view').hide();
 
 			$header_val = $th.children('.header-view').children('span').text();
-			$th.children('.header-input').children('input').val($header_val);
-			$th.children('.header-input').fadeIn();
+			$th.children('.header-input').show();
+			$th.children('.header-input').children('.postfix-radius').children('.small-11').children('input').val($header_val);
 		})
-		$('th.header-name .fa-floppy-o').click(function(){
+		$('th.header-name .postfix.save').click(function(){
 			$id = $(this).attr('id').replace('save_','');
 			$th = $('#header_'+$id);
 			$th.removeClass('edit-input');
 
-			$input_val = $th.children('.header-input').children('input').val();
+			$input_val = $th.children('.header-input').children('.postfix-radius').children('.small-11').children('input').val();
 			$th.children('.header-view').children('span').empty().append($input_val);
 			$th.children('.header-view').show();
-			$th.children('.header-input').fadeOut();
+			$th.children('.header-input').hide();
 		});
 
 		// var v;
@@ -126,16 +126,18 @@ var currentID = 0,
 	backBtn = document.getElementById('back');
   
 nextBtn.addEventListener('click', function(){
-	$('#input'+currentID)
-		.animate({'opacity':'0.4'})
-		.delay(400)
-		.slideUp(400, TableFunctions[func[currentID]](currentID+1));
 
-	console.log(func[currentID]);
+	document.getElementById('input'+currentID).style.display='none';
+	TableFunctions[func[currentID]](currentID+1)
+	// $('#input'+currentID)
+	// 	.animate({'opacity':'0.4'})
+	// 	.delay(400)
+	// 	.slideUp(400, TableFunctions[func[currentID]](currentID+1));
+
 
 	if (currentID<(func.length)){
 		currentID++;
-		$('#input'+currentID).fadeIn();
+		document.getElementById('input'+currentID).style.display='block';
 	}
 
 });

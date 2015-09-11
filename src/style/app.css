@@ -35,17 +35,25 @@ table {
 
 table .header-input{
 	display:none;
-	text-align:center;
+	/*text-align:center;*/
 }
+
+table .header-name .header-input i {
+	text-align:center;
+	float:none;
+	vertical-align:inherit;
+}
+
 table .header-input input {
-	width:auto;
-	display:inline-block;
-	margin-right:10px;
+	float:left;
+	/*width:100%;*/
+	display:inline;
 	margin-bottom:0px;
 }
-table .header-input i {
+table .header-name i {
 	vertical-align: middle;
-	font-size:20px;
+	font-size:22px;
+	float:right;
 }
 
 section {
