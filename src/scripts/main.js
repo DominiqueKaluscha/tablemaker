@@ -51,21 +51,23 @@ var TableFunctions = {
 
 	chooseData: function(id) {
 
-		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML });
+		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML }).sort();
 
-		var filteredData = _.map( data, function(d) {  return _.pick(d, selected) } );
+		var filteredData = _.map( data, function(d) { return _.pick(d, selected) } );
+
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
 
 		main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
 		var table = main.childNodes[0];
 		table.style.width  = "100%";
 
-		table.firstChild.innerHTML += '<tr/><tr/><tr/>';
+		table.firstChild.innerHTML += '<tr/><tr/>';
 
+		var keys = _.keys(_.values(filteredData)[0]);
 
 		// var headerName, editName, saveName;
 
-		selected.forEach(function(s){
+		keys.forEach(function(s){
 			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
 			table.firstChild.children[1].innerHTML += '<th id="type_'+s+'"><select><option value="text">Text</option><option value="number">Number</option></select></th>';
 
@@ -128,12 +130,7 @@ var currentID = 0,
 nextBtn.addEventListener('click', function(){
 
 	document.getElementById('input'+currentID).style.display='none';
-	TableFunctions[func[currentID]](currentID+1)
-	// $('#input'+currentID)
-	// 	.animate({'opacity':'0.4'})
-	// 	.delay(400)
-	// 	.slideUp(400, TableFunctions[func[currentID]](currentID+1));
-
+	TableFunctions[func[currentID]](currentID+1);
 
 	if (currentID<(func.length)){
 		currentID++;
