@@ -8,6 +8,10 @@ h1 {
 	/*min-height:400px;*/
 }
 
+textarea, input[type=text] {
+	font-size:12px;
+}
+
 .row {
 	max-width:80%;
 }
