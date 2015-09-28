@@ -1,3 +1,6 @@
+html {
+	font-family:'Boomer-Light';
+}
 .container {
 	max-width:960px;
 	margin:auto;
@@ -11,4 +14,35 @@
 	font-family:'Boomer-Light';
 	font-size:16px;
 	line-height:1.7rem;
+}
+
+table.dataTable.no-footer {
+	padding-top:20px;
+	border:none;
+}
+
+table.dataTable thead th {
+	text-align: left;
+	font-family:'Boomer-Book';
+	/*padding-left:0;*/
+	padding:10px 8px;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+}
+table.dataTable tbody tr td {
+	font-family:'Boomer-Light';
+	border-bottom:1px solid #ddd;
+}
+table.dataTable thead {
+	border-color:none;
+	background:#f6f6f6;
+}
+table.dataTable {
+	font-family:'Boomer-Book';
+}
+label {
+	text-transform:uppercase;
+	letter-spacing:1px;
+	font-size:12px;
+	vertical-align: baseline;
 }

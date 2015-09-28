@@ -1,34 +1,17 @@
 var table = $('#data-table'),
     thead = $('<thead></thead>'),
-    tbody = $('<tbody></tbody>');
+    tbody = $('<tbody></tbody>'),
+    headers, table_data;
 
 
-function buildTable(data){
+var QueryString = function () {
+  var queryString = window.location.search.substring(1);
 
-  console.log(data);
+  // var docName = 'data/'+queryString+'.json'
+  return 'data/'+queryString+'.json';
+}();
 
-  // var temp = _.template('<tr><td><%= state_rank %></td><td><%= national_rank %></td><td><%= school %></td><td><%= school_type %></td><td><%= net_roi %></td><td><%= annualized_roi %></td></tr>');
-  //   _.each(data, function(d){
-  //       var row = temp(d);
-  //       tbody.append(row);
-  //   });
-  // });
-
-  // var datainit = false;
-
-  // if (!datainit){
-  //    table.DataTable({ responsive: true});
-  //    datainit = true;
-  // }
-
-  // table.append(tbody);
-
-};
-
-
-var headers, table_data;
-
-$.getJSON('data/asdfsdf.json', function( data ) {
+$.getJSON(QueryString, function( data ) {
   
   headers = data.data[0];
   table_data = _.values(data.data);
@@ -51,8 +34,5 @@ $.getJSON('data/asdfsdf.json', function( data ) {
 
   table.append(tbody); 
   table.DataTable({ responsive: true});
-
-
-
 
 });
