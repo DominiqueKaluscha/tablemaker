@@ -37,6 +37,10 @@ table {
 	overflow-y:scroll;
 }
 
+table thead {
+	border-bottom:2px solid #333;
+}
+
 table .header-input{
 	display:none;
 	/*text-align:center;*/
