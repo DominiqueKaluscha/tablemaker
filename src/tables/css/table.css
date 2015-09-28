@@ -1,0 +1,14 @@
+.container {
+	max-width:960px;
+	margin:auto;
+}
+
+.container h1 {
+	font-family:'Publico-Bold';
+}
+
+.container p {
+	font-family:'Boomer-Light';
+	font-size:16px;
+	line-height:1.7rem;
+}

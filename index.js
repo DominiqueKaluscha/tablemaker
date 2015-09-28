@@ -13,7 +13,7 @@ app.use(express.static('src'));
 // app.use(express.bodyParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use('/tables', router);
+app.use(express.static('tables'));
 
 // nunjucksEnv.express( app );
 
@@ -41,7 +41,7 @@ app.post('/', function (req, res, next) {
  	var val = req.param("data");
  	res.json(val);
  	console.log(val);
- 	var outputFile = 'tables/data/'+val.slug+'.json';
+ 	var outputFile = 'src/tables/data/'+val.slug+'.json';
  	fs.writeFile(outputFile, JSON.stringify(val, null, 4), function(err) {
 	    if(err) {
 	      console.log(err);
