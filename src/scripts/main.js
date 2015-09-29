@@ -1,5 +1,5 @@
 var li = document.getElementsByClassName('header-li'),
-	data, filtered, headers;
+	data, filtered, headers, returnData;
 
 
 
@@ -51,12 +51,8 @@ var TableFunctions = {
 
 	},
 
-	chooseData: function(id) {
-		$('#nav-row').hide();
-		$('#embed-row').show();
-
+	sortHeaders: function(id) {
 		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML });
-
 
 		var filteredData = _.map( data, function(d) {
 			picked = _.pick(d, selected);
@@ -66,6 +62,42 @@ var TableFunctions = {
 			// return picked.reverse();
 		});
 
+		filtered = filteredData;
+
+		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
+
+		main.innerHTML = '<table><thead></thead></table>';
+		var table = main.childNodes[0];
+		table.style.width  = "100%";
+
+		table.firstChild.innerHTML += '<tr/>';
+
+		
+
+		selected.forEach(function(s,i){
+			table.firstChild.firstChild.innerHTML += '<th><select class="sort-headers" id ="column'+i+'"></select></th>';
+
+			selected.forEach(function(_s){
+				document.getElementById('column'+i).innerHTML += '<option value="'+_s+'">'+_s+'</option>';
+			});
+
+			// table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
+
+		});
+
+
+	},
+
+	chooseData: function(id) {
+
+
+		var header_arr = [];
+		$(".sort-headers option:selected" ).each(function(){
+			header_arr.push($(this).attr("value"));
+		});
+
+		headers = {};
+
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
 
 		main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
@@ -74,14 +106,15 @@ var TableFunctions = {
 
 		table.firstChild.innerHTML += '<tr/><tr/>';
 
-		var keys = _.keys(_.values(filteredData)[0]);
 
 		// var headerName, editName, saveName;
 
-		keys.forEach(function(s){
+		header_arr.forEach(function(s,i){
+			headers[i] = { "value": s, "label": "" };
 			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
 
 		});
+
 
 		$('th.header-name .fa-pencil').click(function(){
 			$id = $(this).attr('id').replace('edit_','');
@@ -106,32 +139,83 @@ var TableFunctions = {
 		});
 
 		// var v;
-	    filteredData.forEach(function(fd){
+	    filtered.forEach(function(fd){
 	    	table.lastChild.innerHTML += '<tr/>'
-	    	_.each(fd, function(d){
-	    		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
+	    	_.each(header_arr, function(d){
+	    		table.lastChild.lastChild.innerHTML += '<td>'+fd[d]+'</td>'
 	    	});
 	    });
-
-	    filtered = filteredData;
-
+	    // filtered = filteredData;
 
 	},
 
-	callAjax: function(id){
+	previewTable: function(id){
 
-		var title = $('#table-title').val(),
+		$('#nav-row').hide();
+		$('#embed-row').show();
+
+		var table = $('#input'+id+' #data-table'),
+		    thead = $('<thead></thead>'),
+		    tbody = $('<tbody></tbody>');
+
+		var label, value;
+		$('th.header-name').each(function(index){
+			label = $(this).children('.header-view').children('span').text();
+			value = $(this).attr('id').split('header_')[1];
+			headers[index]['label'] = label;
+		});
+
+
+		var title = $('#table-title').val()
 			chatter = $('#table-chatter').val(),
 			slug = title.replace(/(\W+)/g,'-');
 
 
-		var returnData = {
+		var inputtedData = {
 			"title": title,
 			"slug": slug,
 			"chatter": chatter,
+			"headers": _.values(headers),
 			"data": filtered
-		}
+		};
 
+
+		var table_data = _.values(inputtedData.data);
+
+
+		var th = '<tr>';
+		// for (var k in inputtedData.headers) console.log(k);
+		var head = inputtedData.headers;
+
+		head.forEach(function(k,i){
+			console.log(k);
+	  		th += '<th>' + k.label + '</th>';
+		});
+	  	th += '</tr>';
+	  	thead.append(th);
+	  	table.append(thead);
+
+	  	var TableRow;
+		$.each(table_data, function (index, value) {
+		    TableRow = "<tr>";
+		    $.each(headers, function (index, h) {
+		        TableRow += "<td>" + value[h.value] + "</td>";
+		    });
+		    TableRow += "</tr>";
+		    tbody.append(TableRow);
+		});
+
+
+		table.append(tbody); 
+  		table.DataTable({ responsive: true});
+
+
+
+		returnData = inputtedData;
+
+	},
+
+	callAjax: function(id){	
 
 	    $.post('/', {data: returnData}, function (data) {
 	        console.log(data);
@@ -140,10 +224,6 @@ var TableFunctions = {
 
 }
 
-
-// $('#next').click(function(){
-// 	TableFunctions.inputData();
-// });
 
 var currentID = 0,
 	func = _.keys(TableFunctions),
@@ -172,10 +252,3 @@ backBtn.addEventListener('click', function(){
 	TableFunctions[func[currentID]]();
 });
 
-
-
-
-
-// $.get( '/tables', params, function(data){
-// 	console.log('sent!');
-// });
