@@ -1,11 +1,13 @@
 var li = document.getElementsByClassName('header-li'),
-	data, filtered, headers;
+	data, filtered, headers, returnData;
 
-
+var bucket_path = "http://ajc-producer-tools.s3-website-us-east-1.amazonaws.com/tablemaker/";
 
 var TableFunctions = {
 
 	inputData: function(id) {
+		$('#nav-row').show();
+		$('#embed-row').hide();
 		var	input = document.getElementById('data-input').value;	
 		var csv_array = input.split("\n");
 		var header = csv_array.shift();
@@ -32,7 +34,6 @@ var TableFunctions = {
 		'<% }); %></ul>');
 
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
-		console.log(main);
 
 		main.innerHTML = tpl({'header':header});
 
@@ -50,26 +51,70 @@ var TableFunctions = {
 
 	},
 
-	chooseData: function(id) {
-
+	sortHeaders: function(id) {
 		var selected = _.filter(li, function(l) { return l.classList.contains('selected') }).map(function(s){ return s.innerHTML });
 
-		var filteredData = _.map( data, function(d) {  return _.pick(d, selected) } );
+		var filteredData = _.map( data, function(d) {
+			picked = _.pick(d, selected);
+
+			return picked;
+			// console.log(picked);
+			// return picked.reverse();
+		});
+
+		filtered = filteredData;
+
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
-		console.log(main);
+
+		main.innerHTML = '<table><thead></thead></table>';
+		var table = main.childNodes[0];
+		table.style.width  = "100%";
+
+		table.firstChild.innerHTML += '<tr/>';
+
+		
+
+		selected.forEach(function(s,i){
+			table.firstChild.firstChild.innerHTML += '<th><select class="sort-headers" id ="column'+i+'"></select></th>';
+
+			selected.forEach(function(_s){
+				document.getElementById('column'+i).innerHTML += '<option value="'+_s+'">'+_s+'</option>';
+			});
+
+			// table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
+
+		});
+
+
+	},
+
+	chooseData: function(id) {
+
+
+		var header_arr = [];
+		$(".sort-headers option:selected" ).each(function(){
+			header_arr.push($(this).attr("value"));
+		});
+
+		headers = {};
+
+		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
 
 		main.innerHTML = '<table><thead></thead><tbody></tbody></table>';
 		var table = main.childNodes[0];
 		table.style.width  = "100%";
 
-		console.log(table.firstChild);
+		table.firstChild.innerHTML += '<tr/><tr/>';
 
-		table.firstChild.innerHTML += '<tr/><tr/><tr/>';
-		selected.forEach(function(s){
-			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><input type="text"/> <i id="save_'+s+'" class="fa fa-floppy-o"></i></div></th>';
-			table.firstChild.children[1].innerHTML += '<th id="type_'+s+'"><select><option value="text">Text</option><option value="number">Number</option></select></th>';
+
+		// var headerName, editName, saveName;
+
+		header_arr.forEach(function(s,i){
+			headers[i] = { "value": s, "label": "" };
+			table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
 
 		});
+
 
 		$('th.header-name .fa-pencil').click(function(){
 			$id = $(this).attr('id').replace('edit_','');
@@ -78,74 +123,125 @@ var TableFunctions = {
 			$th.children('.header-view').hide();
 
 			$header_val = $th.children('.header-view').children('span').text();
-			$th.children('.header-input').children('input').val($header_val);
-			$th.children('.header-input').fadeIn();
-		})
-		$('th.header-name .fa-floppy-o').click(function(){
+			$th.children('.header-input').show();
+			$th.children('.header-input').children('.postfix-radius').children('.small-11').children('input').val($header_val);
+		});
+
+		$('th.header-name .postfix.save').click(function(){
 			$id = $(this).attr('id').replace('save_','');
 			$th = $('#header_'+$id);
 			$th.removeClass('edit-input');
 
-			$input_val = $th.children('.header-input').children('input').val();
+			$input_val = $th.children('.header-input').children('.postfix-radius').children('.small-11').children('input').val();
 			$th.children('.header-view').children('span').empty().append($input_val);
 			$th.children('.header-view').show();
-			$th.children('.header-input').fadeOut();
+			$th.children('.header-input').hide();
 		});
 
 		// var v;
-	    filteredData.forEach(function(fd){
+	    filtered.forEach(function(fd){
 	    	table.lastChild.innerHTML += '<tr/>'
-	    	_.each(fd, function(d){
-	    		table.lastChild.lastChild.innerHTML += '<td>'+d+'</td>'
+	    	_.each(header_arr, function(d){
+	    		table.lastChild.lastChild.innerHTML += '<td>'+fd[d]+'</td>'
 	    	});
 	    });
-
-	    filtered = filteredData;
-
+	    // filtered = filteredData;
 
 	},
 
-	// callAjax: function(){
-	// 	// $('button').click(function () {
-	//     $.post('/', {data: filtered}, function (data) {
-	//         console.log(data);
-	//     });
-	//     // }, 'json');
-	// }
+	previewTable: function(id){
+
+		$('#nav-row').hide();
+		$('#embed-row').show();
+
+		var table = $('#input'+id+' #data-table'),
+		    thead = $('<thead></thead>'),
+		    tbody = $('<tbody></tbody>');
+
+		var label, value;
+		$('th.header-name').each(function(index){
+			label = $(this).children('.header-view').children('span').text();
+			value = $(this).attr('id').split('header_')[1];
+			headers[index]['label'] = label;
+		});
+
+
+		var title = $('#table-title').val()
+			chatter = $('#table-chatter').val(),
+			slug = title.replace(/(\W+)/g,'-');
+
+
+		var inputtedData = {
+			"title": title,
+			"slug": slug,
+			"chatter": chatter,
+			"headers": _.values(headers),
+			"data": filtered
+		};
+
+
+		var table_data = _.values(inputtedData.data);
+
+		$('#input'+id+' h1').empty().append(inputtedData.title);
+		$('#input'+id+' p').empty().append(inputtedData.chatter);
+
+
+		var th = '<tr>';
+		// for (var k in inputtedData.headers) console.log(k);
+		var head = inputtedData.headers;
+
+		head.forEach(function(k,i){
+			console.log(k);
+	  		th += '<th>' + k.label + '</th>';
+		});
+	  	th += '</tr>';
+	  	thead.append(th);
+	  	table.append(thead);
+
+	  	var TableRow;
+		$.each(table_data, function (index, value) {
+		    TableRow = "<tr>";
+		    $.each(headers, function (index, h) {
+		        TableRow += "<td>" + value[h.value] + "</td>";
+		    });
+		    TableRow += "</tr>";
+		    tbody.append(TableRow);
+		});
+
+
+		table.append(tbody); 
+  		table.DataTable({ responsive: true});
+
+
+
+		returnData = inputtedData;
+
+	}
 
 }
 
 
-// $('#next').click(function(){
-// 	TableFunctions.inputData();
-// });
-
 var currentID = 0,
 	func = _.keys(TableFunctions),
 	nextBtn = document.getElementById('next'),
-	backBtn = document.getElementById('back');
+	backBtn = document.getElementById('back'),
+	embedBtn = document.getElementById('embed'),
+	backEmbedBtn = document.getElementById('back-embed');
   
 nextBtn.addEventListener('click', function(){
-	$('#input'+currentID)
-		.animate({'opacity':'0.4'})
-		.delay(400)
-		.slideUp(400, TableFunctions[func[currentID]](currentID+1));
-
-	console.log(func[currentID]);
-
-	if (currentID<(func.length)){
-		currentID++;
-		$('#input'+currentID).fadeIn();
-	}
-
+	TableFunctions[func[currentID]](currentID+1);
+	document.getElementById('input'+currentID).style.display='none';
+	currentID++;
+	document.getElementById('input'+currentID).style.display='block';
 });
 
-backBtn.addEventListener('click', function(){
-	currentID--;
-	TableFunctions[func[currentID]]();
+embedBtn.addEventListener('click', function(){
+	$.post('/', {data: returnData}, function (data) {
+        console.log(data);
+    });
+
+    $('#embed-overlay').show();
+
+	$('#codebox').empty().append('<pre>&lt;iframe width="100%" height="1100px" src="'+bucket_path+'index.html?'+returnData.slug+'"&gt;&lt;/iframe&gt;</pre>');
 });
 
-
-// $.get( '/tables', params, function(data){
-// 	console.log('sent!');
-// });

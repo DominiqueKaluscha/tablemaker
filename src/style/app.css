@@ -8,6 +8,10 @@ h1 {
 	/*min-height:400px;*/
 }
 
+textarea, input[type=text] {
+	font-size:12px;
+}
+
 .row {
 	max-width:80%;
 }
@@ -33,19 +37,31 @@ table {
 	overflow-y:scroll;
 }
 
+table thead {
+	border-bottom:2px solid #333;
+}
+
 table .header-input{
 	display:none;
-	text-align:center;
+	/*text-align:center;*/
 }
+
+table .header-name .header-input i {
+	text-align:center;
+	float:none;
+	vertical-align:inherit;
+}
+
 table .header-input input {
-	width:auto;
-	display:inline-block;
-	margin-right:10px;
+	float:left;
+	/*width:100%;*/
+	display:inline;
 	margin-bottom:0px;
 }
-table .header-input i {
+table .header-name i {
 	vertical-align: middle;
-	font-size:20px;
+	font-size:22px;
+	float:right;
 }
 
 section {
@@ -62,6 +78,7 @@ section#input0{
 
 #button-row {
 	text-align: center;
+	margin-bottom:100px;
 }
 
 #button-row button {
@@ -103,6 +120,16 @@ button:hover{
 	outline:0;
 }
 
+input[type=search] {
+	height:auto;
+}
+
+#input4 p {
+	font-family:'Boomer-Light';
+	font-size:16px;
+	line-height:1.7rem;
+}
+
 #print-table {
 	display:none;
 	top:0;
@@ -122,3 +149,45 @@ button:hover{
 	font-size:10px;
 	border-color:#333;
 }
+
+
+
+#embed-overlay {
+	display:none;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:1000;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background:rgba(0,0,0,0.4);
+}
+
+#embed-box {
+	position:relative;
+	margin:auto;
+	width:400px;
+	margin-top:200px;
+	background:#fff;
+	padding:20px;
+}
+
+#codebox {
+	background:#fcfcfc;
+	-moz-box-shadow:    inset 0 0 5px #aaa;
+   	-webkit-box-shadow: inset 0 0 5px #aaa;
+   	box-shadow:         inset 0 0 5px #aaa;
+	padding:5px;
+	/*:1px solid #ccc;*/
+	height:5em;
+	overflow:scroll;
+	
+}
+#codebox pre {
+	font-size:12px;
+}
+
+
+

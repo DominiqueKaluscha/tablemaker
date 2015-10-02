@@ -32,8 +32,11 @@
 	<link rel="stylesheet" href="style/lib/foundation.css">
   <link rel="stylesheet" href="style/lib/normalize.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css" />
   <link rel="stylesheet" href="style/fonts.css">
   <link rel="stylesheet" href="style/app.css">
+  <link rel="stylesheet" href="tables/css/table.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -47,7 +50,7 @@
   <div class="row">
     <div class="medium-12 columns">
       <h3>Input the data</h3>
-      <p>Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Instructions: Highlight the cells in your Excel sheet you want to include in your table, then copy and paste them directly into this box. Click next to make sure your data is formatted correctly.</p>
       <div id="main">
         
         <textarea id="data-input"></textarea>
@@ -55,6 +58,7 @@
     </div>
   </div>
 </section>
+
 <section id="input1">
   <div class="row">
     <div class="medium-12 columns">
@@ -66,12 +70,11 @@
   </div>
 </section>
 
-
 <section id="input2">
   <div class="row">
     <div class="medium-12 columns">
-      <h3>Format your data</h3>
-      <p>Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h3>Choose header order</h3>
+      <p>Instructions: Using the dropdowns, pick the order in which you'd like your headers to appear in your table.</p>
       <div id="main">
         
       </div>
@@ -80,10 +83,66 @@
 </section>
 
 
+
+<section id="input3">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Check the data</h3>
+      <p>Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <hr/>
+      <form>
+        <div class="row">
+          <div class="small-2 columns">
+            <label for="right-label" class="right inline">Table title</label>
+          </div>
+          <div class="small-10 columns end">
+            <input type="text" id="table-title" placeholder="Table title"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-2 columns">
+            <label for="right-label" class="right inline">Table chatter</label>
+          </div>
+          <div class="small-10 columns end">
+            <textarea type="text" id="table-chatter" rows="4" placeholder="Write the chatter about your table here."></textarea>
+          </div>
+        </div>
+      </form>
+      <hr/>
+      <div id="main">
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="input4">
+
+<div class="row">
+  <div class="medium-12 columns">
+
+    <h1>Table name</h1>
+    <p>Table chatter. Lorem ipsum Aliqua tempor Excepteur pariatur. Lorem ipsum Aliqua tempor Excepteur pariatur. Lorem ipsum Aliqua tempor Excepteur pariatur. Lorem ipsum Aliqua tempor Excepteur pariatur. Lorem ipsum Irure dolor sunt minim ad in incididunt ad Ut adipisicing culpa quis eiusmod anim laborum voluptate exercitation est.</p>
+
+    <hr/>
+
+    <table id="data-table">
+
+
+    </table>
+
+  </div>
+</div>
+
+</section>
+
+
 <div class="row" id="nav-row">
   <div class="medium-12 columns">
     <div id="button-row">
-        <button id="back"><i class="fa fa-angle-left"></i><span>back</span></button>
+        <!-- <button id="back"><i class="fa fa-angle-left"></i><span>back</span></button> -->
         <button id="next"><span>next</span><i class="fa fa-angle-right"></i></button>
       </div>
   </div>
@@ -92,20 +151,38 @@
 <div class="row" id="embed-row">
   <div class="medium-12 columns">
     <div id="button-row">
-        <button id="back"><i class="fa fa-angle-left"></i><span>go back</span></button>
-        <button id="next"><span>get embed</span><i class="fa fa-angle-right"></i></button>
+      <h3>THIS IS A PREVIEW. Does everything look ok? If so, click 'get embed'</h3>
+        <!-- <button id="back-embed"><i class="fa fa-angle-left"></i><span>go back</span></button> -->
+        <button id="embed"><span>get embed</span><i class="fa fa-angle-right"></i></button>
       </div>
   </div>
 </div> 
 
 
 
+<div id="embed-overlay">
+
+  <div id="embed-box">
+
+    <p>Copy and paste this code to embed your table.</p>
+
+    <div contenteditable="true" id="codebox">
+      <pre>test</pre>
+    </div>
+
+  </div>
+
+</div>
+
 
 
   <script src="scripts/lib/jquery.js"></script>
+  <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+  <script src='//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js'></script>
   <script src="scripts/lib/underscore.js"></script>
   <script src="scripts/lib/foundation.js"></script>
-
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.6.min.js"></script>
+  <script src="config/aws.json"></script>
   <!-- build:js scripts/main.js -->
 	<script src="scripts/main.js"></script>
   <!-- /build -->
