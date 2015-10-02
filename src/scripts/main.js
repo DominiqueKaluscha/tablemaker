@@ -243,5 +243,6 @@ embedBtn.addEventListener('click', function(){
     $('#embed-overlay').show();
 
 	$('#codebox').empty().append('<pre>&lt;iframe width="100%" height="1100px" src="'+bucket_path+'index.html?'+returnData.slug+'"&gt;&lt;/iframe&gt;</pre>');
+	$('pre#direct-url').empty().append(bucket_path+'index.html?'+returnData.slug);
 });
 
