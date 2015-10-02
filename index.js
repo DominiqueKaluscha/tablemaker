@@ -5,7 +5,8 @@ var express = require( "express" ),
     fs = require("fs"),
     app = express(),
     bodyParser = require('body-parser'),
-    aws = require('aws-sdk');
+    aws = require('aws-sdk'),
+    aws.config.region = 'us-east-1';
 
 
 var router = express.Router(); 
@@ -42,24 +43,12 @@ app.post('/', function (req, res, next) {
 	});
 
     aws.config.update({accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_KEY});
+    var body = fs.createReadStream(outputFile);
+    var s3obj = new aws.S3({params: {Bucket: 'ajc-producer-tools', Key: 'tablemaker/data/'}});
 
-    var s3 = new aws.S3();
-    var options = {
-      Bucket: S3_BUCKET,
-      Key: val.slug+'.json',
-      Expires: 60,
-      ContentType: req.query.file_type,
-      ACL: 'public-read'
-    };
-
-    s3.getSignedUrl('putObject', options, function(err, data){
-      if(err) return res.send('Error with S3')
-
-      res.json({
-        signed_request: data,
-        url: 'https://s3.amazonaws.com/' + S3_BUCKET + '/' + req.query.file_name
-      })
-    });
+    s3obj.upload({Body: body}).
+      on('httpUploadProgress', function(evt) { console.log(evt); }).
+      send(function(err, data) { console.log(err, data) });
 
 
 });
