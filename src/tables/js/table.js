@@ -1,6 +1,8 @@
 var table = $('#data-table'),
     thead = $('<thead></thead>'),
     tbody = $('<tbody></tbody>'),
+    headline = $('.container h1'),
+    chatter = $('.container p'),
     headers, table_data;
 
 
@@ -12,6 +14,9 @@ var QueryString = function () {
 }();
 
 $.getJSON(QueryString, function( data ) {
+
+  headline.empty().append(data.title);
+  chatter.empty().append(data.chatter);
   
   headers = data.data[0];
   table_data = _.values(data.data);

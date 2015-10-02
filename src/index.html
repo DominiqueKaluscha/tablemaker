@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css" />
   <link rel="stylesheet" href="style/fonts.css">
   <link rel="stylesheet" href="style/app.css">
+  <link rel="stylesheet" href="tables/css/table.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -141,7 +142,7 @@
 <div class="row" id="nav-row">
   <div class="medium-12 columns">
     <div id="button-row">
-        <button id="back"><i class="fa fa-angle-left"></i><span>back</span></button>
+        <!-- <button id="back"><i class="fa fa-angle-left"></i><span>back</span></button> -->
         <button id="next"><span>next</span><i class="fa fa-angle-right"></i></button>
       </div>
   </div>
@@ -150,13 +151,28 @@
 <div class="row" id="embed-row">
   <div class="medium-12 columns">
     <div id="button-row">
-        <button id="back-embed"><i class="fa fa-angle-left"></i><span>go back</span></button>
+      <h3>THIS IS A PREVIEW. Does everything look ok? If so, click 'get embed'</h3>
+        <!-- <button id="back-embed"><i class="fa fa-angle-left"></i><span>go back</span></button> -->
         <button id="embed"><span>get embed</span><i class="fa fa-angle-right"></i></button>
       </div>
   </div>
 </div> 
 
 
+
+<div id="embed-overlay">
+
+  <div id="embed-box">
+
+    <p>Copy and paste this code to embed your table.</p>
+
+    <div contenteditable="true" id="codebox">
+      <pre>test</pre>
+    </div>
+
+  </div>
+
+</div>
 
 
 
@@ -165,7 +181,8 @@
   <script src='//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js'></script>
   <script src="scripts/lib/underscore.js"></script>
   <script src="scripts/lib/foundation.js"></script>
-
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.6.min.js"></script>
+  <script src="config/aws.json"></script>
   <!-- build:js scripts/main.js -->
 	<script src="scripts/main.js"></script>
   <!-- /build -->

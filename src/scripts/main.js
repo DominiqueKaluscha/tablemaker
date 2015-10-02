@@ -1,7 +1,7 @@
 var li = document.getElementsByClassName('header-li'),
 	data, filtered, headers, returnData;
 
-
+var bucket_path = "http://ajc-producer-tools.s3-website-us-east-1.amazonaws.com/tablemaker/";
 
 var TableFunctions = {
 
@@ -182,6 +182,9 @@ var TableFunctions = {
 
 		var table_data = _.values(inputtedData.data);
 
+		$('#input'+id+' h1').empty().append(inputtedData.title);
+		$('#input'+id+' p').empty().append(inputtedData.chatter);
+
 
 		var th = '<tr>';
 		// for (var k in inputtedData.headers) console.log(k);
@@ -213,13 +216,6 @@ var TableFunctions = {
 
 		returnData = inputtedData;
 
-	},
-
-	callAjax: function(id){	
-
-	    $.post('/', {data: returnData}, function (data) {
-	        console.log(data);
-	    });
 	}
 
 }
@@ -229,26 +225,23 @@ var currentID = 0,
 	func = _.keys(TableFunctions),
 	nextBtn = document.getElementById('next'),
 	backBtn = document.getElementById('back'),
-	embedBtn = document.getElementById('embed');
+	embedBtn = document.getElementById('embed'),
+	backEmbedBtn = document.getElementById('back-embed');
   
 nextBtn.addEventListener('click', function(){
-	document.getElementById('input'+currentID).style.display='none';
 	TableFunctions[func[currentID]](currentID+1);
-
-	// if (currentID<(func.length)){
-		currentID++;
-		document.getElementById('input'+currentID).style.display='block';
-	// }
-
+	document.getElementById('input'+currentID).style.display='none';
+	currentID++;
+	document.getElementById('input'+currentID).style.display='block';
 });
 
 embedBtn.addEventListener('click', function(){
-	TableFunctions[func[currentID]](currentID+1);
-	alert('clicked!',currentID+1);
-});
+	$.post('/', {data: returnData}, function (data) {
+        console.log(data);
+    });
 
-backBtn.addEventListener('click', function(){
-	currentID--;
-	TableFunctions[func[currentID]]();
+    $('#embed-overlay').show();
+
+	$('#codebox').empty().append('<pre>&lt;iframe width="100%" height="1100px" src="'+bucket_path+'index.html?'+returnData.slug+'"&gt;&lt;/iframe&gt;</pre>');
 });
 
