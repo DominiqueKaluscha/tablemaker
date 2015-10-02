@@ -8,7 +8,7 @@ var express = require( "express" ),
     knox = require('knox').createClient({
         key: process.env.AWS_ACCESS_KEY,
         secret: process.env.AWS_SECRET_KEY,
-        bucket: 'ajc-producer-tools'
+        bucket: process.env.S3_BUCKET
     });
 
 
