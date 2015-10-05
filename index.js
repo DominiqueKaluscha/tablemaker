@@ -1,5 +1,4 @@
 var express = require( "express" ),
-    nunjucks = require( "nunjucks" ),
     path = require( "path" ),
     request = require( "request" ),
     fs = require("fs"),
