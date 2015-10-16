@@ -30,7 +30,7 @@ var TableFunctions = {
 
 
 		var tpl = _.template('<ul class="small-block-grid-3"><% _.each(header, function(h) { %> ' +
-    	'<li><div class="header-li"><%= h %></div></li>'+
+    	'<li><div class="header-li selected"><%= h %></div></li>'+
 		'<% }); %></ul>');
 
 		var main = document.getElementById('input'+id).children[0].children[0].children['main'];
@@ -78,7 +78,12 @@ var TableFunctions = {
 			table.firstChild.firstChild.innerHTML += '<th><select class="sort-headers" id ="column'+i+'"></select></th>';
 
 			selected.forEach(function(_s){
-				document.getElementById('column'+i).innerHTML += '<option value="'+_s+'">'+_s+'</option>';
+				if (_s===s){
+					document.getElementById('column'+i).innerHTML += '<option value="'+_s+'" selected>'+_s+'</option>';
+				} else {
+					document.getElementById('column'+i).innerHTML += '<option value="'+_s+'">'+_s+'</option>';
+				}
+				
 			});
 
 			// table.firstChild.firstChild.innerHTML += '<th class="header-name" id="header_'+s+'"><div class="header-view"><span>'+s+'</span> <i id="edit_'+s+'" class="fa fa-pencil"></i></div><div class="header-input"><div class="row collapse postfix-radius"><div class="small-11 columns"><input type="text"/></div><div class="small-1 columns"><span class="postfix save" id="save_'+s+'"><i class="fa fa-floppy-o"></i></span></div></div></div></th>';
@@ -168,12 +173,14 @@ var TableFunctions = {
 
 		var title = $('#table-title').val()
 			chatter = $('#table-chatter').val(),
-			slug = title.replace(/(\W+)/g,'-');
+			slug = title.replace(/(\W+)/g,'-'),
+			timestamp = new Date().getTime();
 
 
 		var inputtedData = {
 			"title": title,
-			"slug": slug,
+			"timestamp": timestamp,
+			"slug": slug+timestamp,
 			"chatter": chatter,
 			"headers": _.values(headers),
 			"data": filtered

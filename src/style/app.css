@@ -26,9 +26,16 @@ textarea, input[type=text] {
 	border:1px solid #333;
 	margin-bottom:10px;
 }
-.header-li:hover, .header-li.selected {
+.header-li.selected {
 	cursor:pointer;
 	background:#dedede;
+}
+.header-li:hover {
+	cursor:pointer;
+}
+
+.header-li.selected:before, .header-li:hover:before {
+	content:"\00bb"; 
 }
 
 table {

@@ -4,11 +4,17 @@ var express = require( "express" ),
     fs = require("fs"),
     app = express(),
     bodyParser = require('body-parser'),
-    knox = require('knox').createClient({
-        key: process.env.AWS_ACCESS_KEY,
-        secret: process.env.AWS_SECRET_KEY,
-        bucket: process.env.S3_BUCKET
-    });
+    dotenv = require('dotenv');
+
+
+dotenv.load();
+
+
+var knox = require('knox').createClient({
+    key: process.env.AWS_ACCESS_KEY,
+    secret: process.env.AWS_SECRET_KEY,
+    bucket: process.env.S3_BUCKET
+});
 
 
 // aws.config.region = 'us-east-1';
