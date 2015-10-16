@@ -28,7 +28,13 @@ Lives here: http://ajc-tablemaker.herokuapp.com/
 
 	You can run `cat .env` to see all of your environment variables.
 
+* To run locally:
+	
+		$ node index.js
+
+	Go to http://127.0.0.1:3003/ to see your tablemaker!
 
 
-// TODO heroku blah blah blah
+
+// TODO explain deployment to heroku
 
