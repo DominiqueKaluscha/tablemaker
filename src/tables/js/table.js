@@ -3,12 +3,17 @@ var table = $('#data-table'),
     tbody = $('<tbody></tbody>'),
     headline = $('.container h1'),
     chatter = $('.container p'),
-    headers, table_data, d = new Date();
+    headers, table_data;
 
-var month = d.getMonth(), year = d.getFullYear();
+
 
 var QueryString = function () {
   var queryString = window.location.search.substring(1);
+  var timestamp = queryString.match(/\d{10,}/)[0];
+
+  var d = new Date(parseFloat(timestamp));
+
+  var month = d.getMonth(), year = d.getFullYear();
 
   // var docName = 'data/'+queryString+'.json'
   return 'data/'+year+'/'+month+'/'+queryString+'.json';
@@ -16,6 +21,7 @@ var QueryString = function () {
 }();
 
 $.getJSON(QueryString, function( data ) {
+
 
   headline.empty().append(data.title);
   chatter.empty().append(data.chatter);
