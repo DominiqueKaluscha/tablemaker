@@ -1,0 +1,956 @@
+{
+    "title": "asdfasdf",
+    "timestamp": "1452547515442",
+    "slug": "asdfasdf1452547515442",
+    "chatter": "",
+    "headers": [
+        {
+            "value": "weave_coa_nsa",
+            "label": "weave_coa_nsa"
+        },
+        {
+            "value": "NSA",
+            "label": "NSA"
+        },
+        {
+            "value": "NPU",
+            "label": "NPU"
+        },
+        {
+            "value": "Total households",
+            "label": "Total households"
+        },
+        {
+            "value": "Household income less than 35,000",
+            "label": "Household income less than 35,000"
+        },
+        {
+            "value": "Percent Household income less than 35,000",
+            "label": "Percent Household income less than 35,000"
+        },
+        {
+            "value": "Household income 35,000 to 74,999",
+            "label": "Household income 35,000 to 74,999"
+        }
+    ],
+    "data": [
+        {
+            "weave_coa_nsa": "Margaret Mitchell, Paces, Pleasant Hill",
+            "NSA": "Margaret Mitchell, Paces, Pleasant Hill",
+            "NPU": "NPU A",
+            "Total households": "1891",
+            "Household income less than 35,000": "131",
+            "Percent Household income less than 35,000": "6.9",
+            "Household income 35,000 to 74,999": "368"
+        },
+        {
+            "weave_coa_nsa": "Kingswood, Mt. Paran/Northside, Mt. Paran Parkway, Randall Mill, West Paces Ferry/Northside, Whitewater Creek",
+            "NSA": "Kingswood, Mt. Paran/Northside, Mt. Paran Parkway, Randall Mill, West Paces Ferry/Northside, Whitewater Creek",
+            "NPU": "NPU A",
+            "Total households": "1668",
+            "Household income less than 35,000": "152",
+            "Percent Household income less than 35,000": "9.1",
+            "Household income 35,000 to 74,999": "249"
+        },
+        {
+            "weave_coa_nsa": "Chastain Park, Tuxedo Park",
+            "NSA": "Chastain Park, Tuxedo Park",
+            "NPU": "NPU A",
+            "Total households": "1071",
+            "Household income less than 35,000": "97",
+            "Percent Household income less than 35,000": "9",
+            "Household income 35,000 to 74,999": "103"
+        },
+        {
+            "weave_coa_nsa": "Peachtree Heights West",
+            "NSA": "Peachtree Heights West",
+            "NPU": "NPU B",
+            "Total households": "2462",
+            "Household income less than 35,000": "998",
+            "Percent Household income less than 35,000": "40.5",
+            "Household income 35,000 to 74,999": "479"
+        },
+        {
+            "weave_coa_nsa": "Buckhead Forest, South Tuxedo Park",
+            "NSA": "Buckhead Forest, South Tuxedo Park",
+            "NPU": "NPU B",
+            "Total households": "1651",
+            "Household income less than 35,000": "319",
+            "Percent Household income less than 35,000": "19.3",
+            "Household income 35,000 to 74,999": "359"
+        },
+        {
+            "weave_coa_nsa": "East Chastain Park",
+            "NSA": "East Chastain Park",
+            "NPU": "NPU B",
+            "Total households": "1018",
+            "Household income less than 35,000": "139",
+            "Percent Household income less than 35,000": "13.7",
+            "Household income 35,000 to 74,999": "260"
+        },
+        {
+            "weave_coa_nsa": "North Buckhead",
+            "NSA": "North Buckhead",
+            "NPU": "NPU B",
+            "Total households": "3972",
+            "Household income less than 35,000": "751",
+            "Percent Household income less than 35,000": "18.9",
+            "Household income 35,000 to 74,999": "766"
+        },
+        {
+            "weave_coa_nsa": "Brookhaven",
+            "NSA": "Brookhaven",
+            "NPU": "NPU B",
+            "Total households": "921",
+            "Household income less than 35,000": "99",
+            "Percent Household income less than 35,000": "10.7",
+            "Household income 35,000 to 74,999": "86"
+        },
+        {
+            "weave_coa_nsa": "Buckhead Heights, Lenox, Ridgedale Park",
+            "NSA": "Buckhead Heights, Lenox, Ridgedale Park",
+            "NPU": "NPU B",
+            "Total households": "2008",
+            "Household income less than 35,000": "551",
+            "Percent Household income less than 35,000": "27.4",
+            "Household income 35,000 to 74,999": "383"
+        },
+        {
+            "weave_coa_nsa": "Buckhead Village, Peachtree Park",
+            "NSA": "Buckhead Village, Peachtree Park",
+            "NPU": "NPU B",
+            "Total households": "1471",
+            "Household income less than 35,000": "531",
+            "Percent Household income less than 35,000": "36.1",
+            "Household income 35,000 to 74,999": "364"
+        },
+        {
+            "weave_coa_nsa": "Pine Hills",
+            "NSA": "Pine Hills",
+            "NPU": "NPU B",
+            "Total households": "4396",
+            "Household income less than 35,000": "907",
+            "Percent Household income less than 35,000": "20.6",
+            "Household income 35,000 to 74,999": "1416"
+        },
+        {
+            "weave_coa_nsa": "Garden Hills",
+            "NSA": "Garden Hills",
+            "NPU": "NPU B",
+            "Total households": "1508",
+            "Household income less than 35,000": "347",
+            "Percent Household income less than 35,000": "23",
+            "Household income 35,000 to 74,999": "441"
+        },
+        {
+            "weave_coa_nsa": "Peachtree Heights East, Peachtree Hills",
+            "NSA": "Peachtree Heights East, Peachtree Hills",
+            "NPU": "NPU B",
+            "Total households": "1969",
+            "Household income less than 35,000": "353",
+            "Percent Household income less than 35,000": "17.9",
+            "Household income 35,000 to 74,999": "416"
+        },
+        {
+            "weave_coa_nsa": "Lindbergh/Morosgo",
+            "NSA": "Lindbergh/Morosgo",
+            "NPU": "NPU B",
+            "Total households": "2984",
+            "Household income less than 35,000": "926",
+            "Percent Household income less than 35,000": "31",
+            "Household income 35,000 to 74,999": "1271"
+        },
+        {
+            "weave_coa_nsa": "Fernleaf, Hanover West, Ridgewood Heights, Wesley Battle, Westover Plantation",
+            "NSA": "Fernleaf, Hanover West, Ridgewood Heights, Wesley Battle, Westover Plantation",
+            "NPU": "NPU C",
+            "Total households": "1253",
+            "Household income less than 35,000": "215",
+            "Percent Household income less than 35,000": "17.1",
+            "Household income 35,000 to 74,999": "310"
+        },
+        {
+            "weave_coa_nsa": "Cross Creek",
+            "NSA": "Cross Creek",
+            "NPU": "NPU C",
+            "Total households": "1336",
+            "Household income less than 35,000": "377",
+            "Percent Household income less than 35,000": "28.2",
+            "Household income 35,000 to 74,999": "571"
+        },
+        {
+            "weave_coa_nsa": "Brandon, Castlewood, Westminster/Milmar, Woodfield",
+            "NSA": "Brandon, Castlewood, Westminster/Milmar, Woodfield",
+            "NPU": "NPU C",
+            "Total households": "1399",
+            "Household income less than 35,000": "379",
+            "Percent Household income less than 35,000": "27.1",
+            "Household income 35,000 to 74,999": "171"
+        },
+        {
+            "weave_coa_nsa": "Arden/Habersham, Argonne Forest, Peachtree Battle Alliance, Wyngate",
+            "NSA": "Arden/Habersham, Argonne Forest, Peachtree Battle Alliance, Wyngate",
+            "NPU": "NPU C",
+            "Total households": "1078",
+            "Household income less than 35,000": "139",
+            "Percent Household income less than 35,000": "12.9",
+            "Household income 35,000 to 74,999": "79"
+        },
+        {
+            "weave_coa_nsa": "Collier Hills, Collier Hills North, Colonial Homes",
+            "NSA": "Collier Hills, Collier Hills North, Colonial Homes",
+            "NPU": "NPU C",
+            "Total households": "1456",
+            "Household income less than 35,000": "499",
+            "Percent Household income less than 35,000": "34.3",
+            "Household income 35,000 to 74,999": "342"
+        },
+        {
+            "weave_coa_nsa": "Channing Valley, Memorial Park, Springlake, Wildwood (NPU-C)",
+            "NSA": "Channing Valley, Memorial Park, Springlake, Wildwood (NPU-C)",
+            "NPU": "NPU C",
+            "Total households": "1391",
+            "Household income less than 35,000": "189",
+            "Percent Household income less than 35,000": "13.6",
+            "Household income 35,000 to 74,999": "253"
+        },
+        {
+            "weave_coa_nsa": "Bolton, Riverside, Whittier Mill Village",
+            "NSA": "Bolton, Riverside, Whittier Mill Village",
+            "NPU": "NPU D",
+            "Total households": "2219",
+            "Household income less than 35,000": "603",
+            "Percent Household income less than 35,000": "27.2",
+            "Household income 35,000 to 74,999": "489"
+        },
+        {
+            "weave_coa_nsa": "Underwood Hills",
+            "NSA": "Underwood Hills",
+            "NPU": "NPU D",
+            "Total households": "1481",
+            "Household income less than 35,000": "400",
+            "Percent Household income less than 35,000": "27",
+            "Household income 35,000 to 74,999": "447"
+        },
+        {
+            "weave_coa_nsa": "Berkeley Park, Blandtown, Hills Park",
+            "NSA": "Berkeley Park, Blandtown, Hills Park",
+            "NPU": "NPU D",
+            "Total households": "1646",
+            "Household income less than 35,000": "474",
+            "Percent Household income less than 35,000": "28.8",
+            "Household income 35,000 to 74,999": "447"
+        },
+        {
+            "weave_coa_nsa": "Ansley Park, Sherwood Forest",
+            "NSA": "Ansley Park, Sherwood Forest",
+            "NPU": "NPU E",
+            "Total households": "1766",
+            "Household income less than 35,000": "218",
+            "Percent Household income less than 35,000": "12.4",
+            "Household income 35,000 to 74,999": "361"
+        },
+        {
+            "weave_coa_nsa": "Georgia Tech, Marietta Street Artery",
+            "NSA": "Georgia Tech, Marietta Street Artery",
+            "NPU": "NPU E",
+            "Total households": "760",
+            "Household income less than 35,000": "350",
+            "Percent Household income less than 35,000": "46",
+            "Household income 35,000 to 74,999": "225"
+        },
+        {
+            "weave_coa_nsa": "Ardmore, Brookwood",
+            "NSA": "Ardmore, Brookwood",
+            "NPU": "NPU E",
+            "Total households": "1771",
+            "Household income less than 35,000": "289",
+            "Percent Household income less than 35,000": "16.3",
+            "Household income 35,000 to 74,999": "661"
+        },
+        {
+            "weave_coa_nsa": "Atlantic Station, Loring Heights",
+            "NSA": "Atlantic Station, Loring Heights",
+            "NPU": "NPU E",
+            "Total households": "1811",
+            "Household income less than 35,000": "732",
+            "Percent Household income less than 35,000": "40.4",
+            "Household income 35,000 to 74,999": "593"
+        },
+        {
+            "weave_coa_nsa": "Brookwood Hills",
+            "NSA": "Brookwood Hills",
+            "NPU": "NPU E",
+            "Total households": "1982",
+            "Household income less than 35,000": "620",
+            "Percent Household income less than 35,000": "31.3",
+            "Household income 35,000 to 74,999": "565"
+        },
+        {
+            "weave_coa_nsa": "Home Park",
+            "NSA": "Home Park",
+            "NPU": "NPU E",
+            "Total households": "1576",
+            "Household income less than 35,000": "659",
+            "Percent Household income less than 35,000": "41.8",
+            "Household income 35,000 to 74,999": "517"
+        },
+        {
+            "weave_coa_nsa": "Midtown",
+            "NSA": "Midtown",
+            "NPU": "NPU E",
+            "Total households": "10290",
+            "Household income less than 35,000": "2672",
+            "Percent Household income less than 35,000": "26",
+            "Household income 35,000 to 74,999": "3381"
+        },
+        {
+            "weave_coa_nsa": "Piedmont Heights",
+            "NSA": "Piedmont Heights",
+            "NPU": "NPU F",
+            "Total households": "1564",
+            "Household income less than 35,000": "489",
+            "Percent Household income less than 35,000": "31.3",
+            "Household income 35,000 to 74,999": "517"
+        },
+        {
+            "weave_coa_nsa": "Lindridge/Martin Manor",
+            "NSA": "Lindridge/Martin Manor",
+            "NPU": "NPU F",
+            "Total households": "1717",
+            "Household income less than 35,000": "695",
+            "Percent Household income less than 35,000": "40.5",
+            "Household income 35,000 to 74,999": "572"
+        },
+        {
+            "weave_coa_nsa": "Atkins Park, Virginia Highland",
+            "NSA": "Atkins Park, Virginia Highland",
+            "NPU": "NPU F",
+            "Total households": "4397",
+            "Household income less than 35,000": "1187",
+            "Percent Household income less than 35,000": "27",
+            "Household income 35,000 to 74,999": "1063"
+        },
+        {
+            "weave_coa_nsa": "Morningside/Lenox Park",
+            "NSA": "Morningside/Lenox Park",
+            "NPU": "NPU F",
+            "Total households": "3827",
+            "Household income less than 35,000": "581",
+            "Percent Household income less than 35,000": "15.2",
+            "Household income 35,000 to 74,999": "726"
+        },
+        {
+            "weave_coa_nsa": "Atlanta Industrial Park, Bolton Hills, Brookview Heights, Chattahoochee, English Park, Lincoln Homes, Monroe Heights",
+            "NSA": "Atlanta Industrial Park, Bolton Hills, Brookview Heights, Chattahoochee, English Park, Lincoln Homes, Monroe Heights",
+            "NPU": "NPU G",
+            "Total households": "974",
+            "Household income less than 35,000": "567",
+            "Percent Household income less than 35,000": "58.2",
+            "Household income 35,000 to 74,999": "343"
+        },
+        {
+            "weave_coa_nsa": "Almond Park, Carey Park",
+            "NSA": "Almond Park, Carey Park",
+            "NPU": "NPU G",
+            "Total households": "852",
+            "Household income less than 35,000": "694",
+            "Percent Household income less than 35,000": "81.5",
+            "Household income 35,000 to 74,999": "109"
+        },
+        {
+            "weave_coa_nsa": "Carver Hills, Rockdale, Scotts Crossing, West Highlands",
+            "NSA": "Carver Hills, Rockdale, Scotts Crossing, West Highlands",
+            "NPU": "NPU G",
+            "Total households": "1536",
+            "Household income less than 35,000": "1004",
+            "Percent Household income less than 35,000": "65.3",
+            "Household income 35,000 to 74,999": "366"
+        },
+        {
+            "weave_coa_nsa": "Bankhead Courts, Bankhead/Bolton, Carroll Heights, Fairburn Heights, Old Gordon",
+            "NSA": "Bankhead Courts, Bankhead/Bolton, Carroll Heights, Fairburn Heights, Old Gordon",
+            "NPU": "NPU H",
+            "Total households": "1149",
+            "Household income less than 35,000": "775",
+            "Percent Household income less than 35,000": "67.4",
+            "Household income 35,000 to 74,999": "295"
+        },
+        {
+            "weave_coa_nsa": "Adamsville, Oakcliff",
+            "NSA": "Adamsville, Oakcliff",
+            "NPU": "NPU H",
+            "Total households": "785",
+            "Household income less than 35,000": "552",
+            "Percent Household income less than 35,000": "70.3",
+            "Household income 35,000 to 74,999": "184"
+        },
+        {
+            "weave_coa_nsa": "Fairburn Mays, Mays",
+            "NSA": "Fairburn Mays, Mays",
+            "NPU": "NPU H",
+            "Total households": "1708",
+            "Household income less than 35,000": "1029",
+            "Percent Household income less than 35,000": "60.2",
+            "Household income 35,000 to 74,999": "536"
+        },
+        {
+            "weave_coa_nsa": "Baker Hills, Bakers Ferry, Boulder Park, Fairburn Road/Wisteria Lane, Ridgecrest Forest, Wildwood (NPU-H), Wilson Mill Meadows, Wisteria Gardens",
+            "NSA": "Baker Hills, Bakers Ferry, Boulder Park, Fairburn Road/Wisteria Lane, Ridgecrest Forest, Wildwood (NPU-H), Wilson Mill Meadows, Wisteria Gardens",
+            "NPU": "NPU H",
+            "Total households": "1659",
+            "Household income less than 35,000": "757",
+            "Percent Household income less than 35,000": "45.7",
+            "Household income 35,000 to 74,999": "774"
+        },
+        {
+            "weave_coa_nsa": "Beecher Hills, Florida Heights, Westwood Terrace",
+            "NSA": "Beecher Hills, Florida Heights, Westwood Terrace",
+            "NPU": "NPU I",
+            "Total households": "1292",
+            "Household income less than 35,000": "761",
+            "Percent Household income less than 35,000": "59",
+            "Household income 35,000 to 74,999": "396"
+        },
+        {
+            "weave_coa_nsa": "Cascade Heights, East Ardley Road, Green Acres Valley, Green Forest Acres, Horseshoe Community, Magnum Manor, West Manor",
+            "NSA": "Cascade Heights, East Ardley Road, Green Acres Valley, Green Forest Acres, Horseshoe Community, Magnum Manor, West Manor",
+            "NPU": "NPU I",
+            "Total households": "1304",
+            "Household income less than 35,000": "447",
+            "Percent Household income less than 35,000": "34.3",
+            "Household income 35,000 to 74,999": "449"
+        },
+        {
+            "weave_coa_nsa": "Audobon Forest, Audobon Forest West, Chalet Woods, Harland Terrace, Peyton Forest, Westhaven",
+            "NSA": "Audobon Forest, Audobon Forest West, Chalet Woods, Harland Terrace, Peyton Forest, Westhaven",
+            "NPU": "NPU I",
+            "Total households": "1871",
+            "Household income less than 35,000": "1055",
+            "Percent Household income less than 35,000": "56.4",
+            "Household income 35,000 to 74,999": "492"
+        },
+        {
+            "weave_coa_nsa": "Collier Heights",
+            "NSA": "Collier Heights",
+            "NPU": "NPU I",
+            "Total households": "2327",
+            "Household income less than 35,000": "1363",
+            "Percent Household income less than 35,000": "58.6",
+            "Household income 35,000 to 74,999": "517"
+        },
+        {
+            "weave_coa_nsa": "Ivan Hill",
+            "NSA": "Ivan Hill",
+            "NPU": "NPU I",
+            "Total households": "1707",
+            "Household income less than 35,000": "1087",
+            "Percent Household income less than 35,000": "63.7",
+            "Household income 35,000 to 74,999": "371"
+        },
+        {
+            "weave_coa_nsa": "Center Hill, Harvel Homes Community",
+            "NSA": "Center Hill, Harvel Homes Community",
+            "NPU": "NPU J",
+            "Total households": "896",
+            "Household income less than 35,000": "569",
+            "Percent Household income less than 35,000": "63.5",
+            "Household income 35,000 to 74,999": "301"
+        },
+        {
+            "weave_coa_nsa": "Grove Park",
+            "NSA": "Grove Park",
+            "NPU": "NPU J",
+            "Total households": "1777",
+            "Household income less than 35,000": "1224",
+            "Percent Household income less than 35,000": "68.9",
+            "Household income 35,000 to 74,999": "372"
+        },
+        {
+            "weave_coa_nsa": "Dixie Hills, Penelope Neighbors, West Lake",
+            "NSA": "Dixie Hills, Penelope Neighbors, West Lake",
+            "NPU": "NPU J",
+            "Total households": "1484",
+            "Household income less than 35,000": "977",
+            "Percent Household income less than 35,000": "65.8",
+            "Household income 35,000 to 74,999": "373"
+        },
+        {
+            "weave_coa_nsa": "Hunter Hills, Mozley Park",
+            "NSA": "Hunter Hills, Mozley Park",
+            "NPU": "NPU K",
+            "Total households": "1483",
+            "Household income less than 35,000": "990",
+            "Percent Household income less than 35,000": "66.7",
+            "Household income 35,000 to 74,999": "365"
+        },
+        {
+            "weave_coa_nsa": "Bankhead, Washington Park",
+            "NSA": "Bankhead, Washington Park",
+            "NPU": "NPU K",
+            "Total households": "1129",
+            "Household income less than 35,000": "824",
+            "Percent Household income less than 35,000": "73",
+            "Household income 35,000 to 74,999": "84"
+        },
+        {
+            "weave_coa_nsa": "Knight Park/Howell Station",
+            "NSA": "Knight Park/Howell Station",
+            "NPU": "NPU K",
+            "Total households": "288",
+            "Household income less than 35,000": "106",
+            "Percent Household income less than 35,000": "36.8",
+            "Household income 35,000 to 74,999": "77"
+        },
+        {
+            "weave_coa_nsa": "Vine City",
+            "NSA": "Vine City",
+            "NPU": "NPU L",
+            "Total households": "1229",
+            "Household income less than 35,000": "870",
+            "Percent Household income less than 35,000": "70.8",
+            "Household income 35,000 to 74,999": "280"
+        },
+        {
+            "weave_coa_nsa": "English Avenue",
+            "NSA": "English Avenue",
+            "NPU": "NPU L",
+            "Total households": "1512",
+            "Household income less than 35,000": "1054",
+            "Percent Household income less than 35,000": "69.7",
+            "Household income 35,000 to 74,999": "378"
+        },
+        {
+            "weave_coa_nsa": "Castleberry Hill, Downtown",
+            "NSA": "Castleberry Hill, Downtown",
+            "NPU": "NPU M",
+            "Total households": "4558",
+            "Household income less than 35,000": "2281",
+            "Percent Household income less than 35,000": "50",
+            "Household income 35,000 to 74,999": "1106"
+        },
+        {
+            "weave_coa_nsa": "Old Fourth Ward, Sweet Auburn",
+            "NSA": "Old Fourth Ward, Sweet Auburn",
+            "NPU": "NPU M",
+            "Total households": "6499",
+            "Household income less than 35,000": "3135",
+            "Percent Household income less than 35,000": "48.2",
+            "Household income 35,000 to 74,999": "1595"
+        },
+        {
+            "weave_coa_nsa": "Cabbagetown, Reynoldstown",
+            "NSA": "Cabbagetown, Reynoldstown",
+            "NPU": "NPU N",
+            "Total households": "2038",
+            "Household income less than 35,000": "826",
+            "Percent Household income less than 35,000": "40.5",
+            "Household income 35,000 to 74,999": "649"
+        },
+        {
+            "weave_coa_nsa": "Inman Park, Poncey-Highland",
+            "NSA": "Inman Park, Poncey-Highland",
+            "NPU": "NPU N",
+            "Total households": "3426",
+            "Household income less than 35,000": "742",
+            "Percent Household income less than 35,000": "21.6",
+            "Household income 35,000 to 74,999": "1010"
+        },
+        {
+            "weave_coa_nsa": "Candler Park, Druid Hills",
+            "NSA": "Candler Park, Druid Hills",
+            "NPU": "NPU N",
+            "Total households": "2292",
+            "Household income less than 35,000": "399",
+            "Percent Household income less than 35,000": "17.4",
+            "Household income 35,000 to 74,999": "601"
+        },
+        {
+            "weave_coa_nsa": "Lake Claire",
+            "NSA": "Lake Claire",
+            "NPU": "NPU N",
+            "Total households": "1167",
+            "Household income less than 35,000": "134",
+            "Percent Household income less than 35,000": "11.5",
+            "Household income 35,000 to 74,999": "313"
+        },
+        {
+            "weave_coa_nsa": "East Lake, The Villages at East Lake",
+            "NSA": "East Lake, The Villages at East Lake",
+            "NPU": "NPU O",
+            "Total households": "1675",
+            "Household income less than 35,000": "717",
+            "Percent Household income less than 35,000": "42.8",
+            "Household income 35,000 to 74,999": "469"
+        },
+        {
+            "weave_coa_nsa": "Kirkwood",
+            "NSA": "Kirkwood",
+            "NPU": "NPU O",
+            "Total households": "2541",
+            "Household income less than 35,000": "1013",
+            "Percent Household income less than 35,000": "39.9",
+            "Household income 35,000 to 74,999": "654"
+        },
+        {
+            "weave_coa_nsa": "Edgewood",
+            "NSA": "Edgewood",
+            "NPU": "NPU O",
+            "Total households": "1793",
+            "Household income less than 35,000": "846",
+            "Percent Household income less than 35,000": "47.2",
+            "Household income 35,000 to 74,999": "439"
+        },
+        {
+            "weave_coa_nsa": "Arlington Estates, Ben Hill, Butner/Tell, Elmco Estates, Fairburn, Fairburn Tell, Fairway Acres, Huntington, Lake Estates, Wildwood Forest",
+            "NSA": "Arlington Estates, Ben Hill, Butner/Tell, Elmco Estates, Fairburn, Fairburn Tell, Fairway Acres, Huntington, Lake Estates, Wildwood Forest",
+            "NPU": "NPU P",
+            "Total households": "1290",
+            "Household income less than 35,000": "380",
+            "Percent Household income less than 35,000": "29.5",
+            "Household income 35,000 to 74,999": "505"
+        },
+        {
+            "weave_coa_nsa": "Princeton Lakes",
+            "NSA": "Princeton Lakes",
+            "NPU": "NPU P",
+            "Total households": "1535",
+            "Household income less than 35,000": "254",
+            "Percent Household income less than 35,000": "16.6",
+            "Household income 35,000 to 74,999": "786"
+        },
+        {
+            "weave_coa_nsa": "Ben Hill Acres, Briar Glen, Cascade Green, Heritage Valley, Meadowbrook Forest, Mt. Gilead Woods",
+            "NSA": "Ben Hill Acres, Briar Glen, Cascade Green, Heritage Valley, Meadowbrook Forest, Mt. Gilead Woods",
+            "NPU": "NPU P",
+            "Total households": "838",
+            "Household income less than 35,000": "368",
+            "Percent Household income less than 35,000": "43.9",
+            "Household income 35,000 to 74,999": "226"
+        },
+        {
+            "weave_coa_nsa": "Ben Hill Terrace, Kings Forest, Old Fairburn Village",
+            "NSA": "Ben Hill Terrace, Kings Forest, Old Fairburn Village",
+            "NPU": "NPU P",
+            "Total households": "871",
+            "Household income less than 35,000": "455",
+            "Percent Household income less than 35,000": "52.3",
+            "Household income 35,000 to 74,999": "236"
+        },
+        {
+            "weave_coa_nsa": "Ashley Courts, Greenbriar Village, Niskey Cove, Niskey Lake, Sandlewood Estates",
+            "NSA": "Ashley Courts, Greenbriar Village, Niskey Cove, Niskey Lake, Sandlewood Estates",
+            "NPU": "NPU P",
+            "Total households": "967",
+            "Household income less than 35,000": "399",
+            "Percent Household income less than 35,000": "41.2",
+            "Household income 35,000 to 74,999": "266"
+        },
+        {
+            "weave_coa_nsa": "Ben Hill Forest, Ben Hill Pines, Brentwood, Deerwood, Mellwood, Rue Royal, Tampa Park",
+            "NSA": "Ben Hill Forest, Ben Hill Pines, Brentwood, Deerwood, Mellwood, Rue Royal, Tampa Park",
+            "NPU": "NPU P",
+            "Total households": "1202",
+            "Household income less than 35,000": "591",
+            "Percent Household income less than 35,000": "49.1",
+            "Household income 35,000 to 74,999": "412"
+        },
+        {
+            "weave_coa_nsa": "Midwest Cascade, Regency Trace",
+            "NSA": "Midwest Cascade, Regency Trace",
+            "NPU": "NPU Q",
+            "Total households": "786",
+            "Household income less than 35,000": "121",
+            "Percent Household income less than 35,000": "15.4",
+            "Household income 35,000 to 74,999": "293"
+        },
+        {
+            "weave_coa_nsa": "Campbellton Road, Fort Valley, Pomona Park",
+            "NSA": "Campbellton Road, Fort Valley, Pomona Park",
+            "NPU": "NPU R",
+            "Total households": "3043",
+            "Household income less than 35,000": "2435",
+            "Percent Household income less than 35,000": "80",
+            "Household income 35,000 to 74,999": "485"
+        },
+        {
+            "weave_coa_nsa": "Adams Park, Laurens Valley, Southwest",
+            "NSA": "Adams Park, Laurens Valley, Southwest",
+            "NPU": "NPU R",
+            "Total households": "2516",
+            "Household income less than 35,000": "1067",
+            "Percent Household income less than 35,000": "42.4",
+            "Household income 35,000 to 74,999": "881"
+        },
+        {
+            "weave_coa_nsa": "Greenbriar",
+            "NSA": "Greenbriar",
+            "NPU": "NPU R",
+            "Total households": "1981",
+            "Household income less than 35,000": "1290",
+            "Percent Household income less than 35,000": "65.1",
+            "Household income 35,000 to 74,999": "510"
+        },
+        {
+            "weave_coa_nsa": "Bush Mountain, Oakland City",
+            "NSA": "Bush Mountain, Oakland City",
+            "NPU": "NPU S",
+            "Total households": "1228",
+            "Household income less than 35,000": "903",
+            "Percent Household income less than 35,000": "73.5",
+            "Household income 35,000 to 74,999": "260"
+        },
+        {
+            "weave_coa_nsa": "Fort McPherson, Venetian Hills",
+            "NSA": "Fort McPherson, Venetian Hills",
+            "NPU": "NPU S",
+            "Total households": "1284",
+            "Household income less than 35,000": "778",
+            "Percent Household income less than 35,000": "60.6",
+            "Household income 35,000 to 74,999": "408"
+        },
+        {
+            "weave_coa_nsa": "Cascade Avenue/Road",
+            "NSA": "Cascade Avenue/Road",
+            "NPU": "NPU S",
+            "Total households": "883",
+            "Household income less than 35,000": "477",
+            "Percent Household income less than 35,000": "54.1",
+            "Household income 35,000 to 74,999": "269"
+        },
+        {
+            "weave_coa_nsa": "Ashview Heights, Harris Chiles, Just Us",
+            "NSA": "Ashview Heights, Harris Chiles, Just Us",
+            "NPU": "NPU T",
+            "Total households": "983",
+            "Household income less than 35,000": "727",
+            "Percent Household income less than 35,000": "73.9",
+            "Household income 35,000 to 74,999": "202"
+        },
+        {
+            "weave_coa_nsa": "Atlanta University Center, The Villages at Castleberry Hill",
+            "NSA": "Atlanta University Center, The Villages at Castleberry Hill",
+            "NPU": "NPU T",
+            "Total households": "968",
+            "Household income less than 35,000": "567",
+            "Percent Household income less than 35,000": "58.6",
+            "Household income 35,000 to 74,999": "202"
+        },
+        {
+            "weave_coa_nsa": "Westview",
+            "NSA": "Westview",
+            "NPU": "NPU T",
+            "Total households": "1123",
+            "Household income less than 35,000": "712",
+            "Percent Household income less than 35,000": "63.4",
+            "Household income 35,000 to 74,999": "287"
+        },
+        {
+            "weave_coa_nsa": "West End",
+            "NSA": "West End",
+            "NPU": "NPU T",
+            "Total households": "1976",
+            "Household income less than 35,000": "1245",
+            "Percent Household income less than 35,000": "63",
+            "Household income 35,000 to 74,999": "548"
+        },
+        {
+            "weave_coa_nsa": "Capitol Gateway, Summerhill",
+            "NSA": "Capitol Gateway, Summerhill",
+            "NPU": "NPU V",
+            "Total households": "1346",
+            "Household income less than 35,000": "839",
+            "Percent Household income less than 35,000": "62.3",
+            "Household income 35,000 to 74,999": "301"
+        },
+        {
+            "weave_coa_nsa": "Adair Park, Pittsburgh",
+            "NSA": "Adair Park, Pittsburgh",
+            "NPU": "NPU V",
+            "Total households": "1702",
+            "Household income less than 35,000": "1338",
+            "Percent Household income less than 35,000": "78.6",
+            "Household income 35,000 to 74,999": "252"
+        },
+        {
+            "weave_coa_nsa": "Peoplestown",
+            "NSA": "Peoplestown",
+            "NPU": "NPU V",
+            "Total households": "1039",
+            "Household income less than 35,000": "728",
+            "Percent Household income less than 35,000": "70.1",
+            "Household income 35,000 to 74,999": "130"
+        },
+        {
+            "weave_coa_nsa": "Mechanicsville",
+            "NSA": "Mechanicsville",
+            "NPU": "NPU V",
+            "Total households": "1346",
+            "Household income less than 35,000": "988",
+            "Percent Household income less than 35,000": "73.4",
+            "Household income 35,000 to 74,999": "209"
+        },
+        {
+            "weave_coa_nsa": "Grant Park, Oakland",
+            "NSA": "Grant Park, Oakland",
+            "NPU": "NPU W",
+            "Total households": "3188",
+            "Household income less than 35,000": "703",
+            "Percent Household income less than 35,000": "22.1",
+            "Household income 35,000 to 74,999": "900"
+        },
+        {
+            "weave_coa_nsa": "Benteen Park, Boulevard Heights, Custer/McDonough/Guice, State Facility, Woodland Hills",
+            "NSA": "Benteen Park, Boulevard Heights, Custer/McDonough/Guice, State Facility, Woodland Hills",
+            "NPU": "NPU W",
+            "Total households": "1311",
+            "Household income less than 35,000": "551",
+            "Percent Household income less than 35,000": "42",
+            "Household income 35,000 to 74,999": "443"
+        },
+        {
+            "weave_coa_nsa": "Ormewood Park",
+            "NSA": "Ormewood Park",
+            "NPU": "NPU W",
+            "Total households": "1888",
+            "Household income less than 35,000": "480",
+            "Percent Household income less than 35,000": "25.4",
+            "Household income 35,000 to 74,999": "454"
+        },
+        {
+            "weave_coa_nsa": "East Atlanta",
+            "NSA": "East Atlanta",
+            "NPU": "NPU W",
+            "Total households": "2344",
+            "Household income less than 35,000": "963",
+            "Percent Household income less than 35,000": "41.1",
+            "Household income 35,000 to 74,999": "608"
+        },
+        {
+            "weave_coa_nsa": "Capitol View, Capitol View Manor",
+            "NSA": "Capitol View, Capitol View Manor",
+            "NPU": "NPU X",
+            "Total households": "994",
+            "Household income less than 35,000": "333",
+            "Percent Household income less than 35,000": "33.5",
+            "Household income 35,000 to 74,999": "429"
+        },
+        {
+            "weave_coa_nsa": "Perkerson",
+            "NSA": "Perkerson",
+            "NPU": "NPU X",
+            "Total households": "1048",
+            "Household income less than 35,000": "761",
+            "Percent Household income less than 35,000": "72.6",
+            "Household income 35,000 to 74,999": "213"
+        },
+        {
+            "weave_coa_nsa": "Hammond Park",
+            "NSA": "Hammond Park",
+            "NPU": "NPU X",
+            "Total households": "901",
+            "Household income less than 35,000": "748",
+            "Percent Household income less than 35,000": "83",
+            "Household income 35,000 to 74,999": "134"
+        },
+        {
+            "weave_coa_nsa": "Sylvan Hills",
+            "NSA": "Sylvan Hills",
+            "NPU": "NPU X",
+            "Total households": "1901",
+            "Household income less than 35,000": "1189",
+            "Percent Household income less than 35,000": "62.5",
+            "Household income 35,000 to 74,999": "498"
+        },
+        {
+            "weave_coa_nsa": "Airport",
+            "NSA": "Airport",
+            "NPU": "NPU X",
+            "Total households": "",
+            "Household income less than 35,000": "",
+            "Percent Household income less than 35,000": "",
+            "Household income 35,000 to 74,999": ""
+        },
+        {
+            "weave_coa_nsa": "Chosewood Park, Englewood Manor",
+            "NSA": "Chosewood Park, Englewood Manor",
+            "NPU": "NPU Y",
+            "Total households": "462",
+            "Household income less than 35,000": "321",
+            "Percent Household income less than 35,000": "69.4",
+            "Household income 35,000 to 74,999": "114"
+        },
+        {
+            "weave_coa_nsa": "Amal Heights, Betmar LaVilla, High Point, Joyland",
+            "NSA": "Amal Heights, Betmar LaVilla, High Point, Joyland",
+            "NPU": "NPU Y",
+            "Total households": "878",
+            "Household income less than 35,000": "554",
+            "Percent Household income less than 35,000": "63.1",
+            "Household income 35,000 to 74,999": "187"
+        },
+        {
+            "weave_coa_nsa": "South Atlanta, The Villages at Carver",
+            "NSA": "South Atlanta, The Villages at Carver",
+            "NPU": "NPU Y",
+            "Total households": "1159",
+            "Household income less than 35,000": "864",
+            "Percent Household income less than 35,000": "74.5",
+            "Household income 35,000 to 74,999": "202"
+        },
+        {
+            "weave_coa_nsa": "Lakewood Heights",
+            "NSA": "Lakewood Heights",
+            "NPU": "NPU Y",
+            "Total households": "706",
+            "Household income less than 35,000": "472",
+            "Percent Household income less than 35,000": "66.8",
+            "Household income 35,000 to 74,999": "156"
+        },
+        {
+            "weave_coa_nsa": "Lakewood, Leila Valley, Norwood Manor, Rebel Valley Forest",
+            "NSA": "Lakewood, Leila Valley, Norwood Manor, Rebel Valley Forest",
+            "NPU": "NPU Z",
+            "Total households": "972",
+            "Household income less than 35,000": "703",
+            "Percent Household income less than 35,000": "72.3",
+            "Household income 35,000 to 74,999": "223"
+        },
+        {
+            "weave_coa_nsa": "Thomasville Heights",
+            "NSA": "Thomasville Heights",
+            "NPU": "NPU Z",
+            "Total households": "887",
+            "Household income less than 35,000": "722",
+            "Percent Household income less than 35,000": "81.4",
+            "Household income 35,000 to 74,999": "151"
+        },
+        {
+            "weave_coa_nsa": "Blair Villa/Poole Creek, Glenrose Heights, Orchard Knob, Rosedale Heights",
+            "NSA": "Blair Villa/Poole Creek, Glenrose Heights, Orchard Knob, Rosedale Heights",
+            "NPU": "NPU Z",
+            "Total households": "2351",
+            "Household income less than 35,000": "1525",
+            "Percent Household income less than 35,000": "64.9",
+            "Household income 35,000 to 74,999": "662"
+        },
+        {
+            "weave_coa_nsa": "Browns Mill Park, Polar Rock, Swallow Circle/Baywood",
+            "NSA": "Browns Mill Park, Polar Rock, Swallow Circle/Baywood",
+            "NPU": "NPU Z",
+            "Total households": "1347",
+            "Household income less than 35,000": "678",
+            "Percent Household income less than 35,000": "50.3",
+            "Household income 35,000 to 74,999": "426"
+        },
+        {
+            "weave_coa_nsa": "South River Gardens",
+            "NSA": "South River Gardens",
+            "NPU": "NPU Z",
+            "Total households": "852",
+            "Household income less than 35,000": "506",
+            "Percent Household income less than 35,000": "59.3",
+            "Household income 35,000 to 74,999": "259"
+        }
+    ]
+}

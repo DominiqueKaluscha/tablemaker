@@ -223,6 +223,8 @@ var TableFunctions = {
 
 		returnData = inputtedData;
 
+		console.log(JSON.stringify(inputtedData));
+
 	}
 
 }
@@ -243,6 +245,7 @@ nextBtn.addEventListener('click', function(){
 });
 
 embedBtn.addEventListener('click', function(){
+
 	$.post('/', {data: returnData}, function (data) {
         console.log(data);
     });

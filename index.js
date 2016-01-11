@@ -4,17 +4,20 @@ var express = require( "express" ),
     fs = require("fs"),
     app = express(),
     bodyParser = require('body-parser'),
-    dotenv = require('dotenv');
+    dotenv = require('dotenv'),
+    knox = require('knox'),
+    MultiPartUpload = require('knox-mpu');
 
 
 dotenv.load();
 
 
-var knox = require('knox').createClient({
+var client = knox.createClient({
     key: process.env.AWS_ACCESS_KEY,
     secret: process.env.AWS_SECRET_KEY,
     bucket: process.env.S3_BUCKET
-});
+}),
+upload = null;
 
 
 // aws.config.region = 'us-east-1';
@@ -23,15 +26,24 @@ var knox = require('knox').createClient({
 var router = express.Router(); 
 // app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'src')));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+        extended: true,
+     parameterLimit: 10000,
+     limit: 1024 * 1024 * 10
+}));
+app.use(bodyParser.json({
+        extended: true,
+     parameterLimit: 10000,
+     limit: 1024 * 1024 * 10
+}));
+
 
 app.set('port', process.env.PORT || 3003);
 
 
 // var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
 // var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
-// var S3_BUCKET = 'ajc-producer-tools';
+// var S3_BUCKET = process.env.S3_BUCKET;
 
 
 app.get('/', function(req, res) {  
@@ -45,36 +57,48 @@ app.post('/', function (req, res, next) {
     var month = d.getMonth(), year = d.getFullYear(),
  	    val = req.param("data");
  	res.json(val);
- 	console.log(val);
- 	// var localFile = 'src/tables/data/'+val.slug+'.json';
+
+ 	var localFile = 'src/data/temp.json';
     var awsFile = '/tablemaker/data/'+year+'/'+month+'/'+val.slug+'.json';
 
     var string = JSON.stringify(val);
-    var req = knox.put(awsFile, {
-        'Content-Length': Buffer.byteLength(string),
-        'Content-Type': 'application/json',
-        'x-amz-acl': 'public-read'
-    });
+    
     req.on('response', function(res){
+        
       if (200 == res.statusCode) {
         console.log('saved to %s', req.url);
       }
     });
-    req.end(string);
 
-
- // 	fs.writeFile(localFile, JSON.stringify(val, null, 4), function(err) {
-	//     if(err) {
-	//       console.log(err);
-	//     } else {
-	//       console.log("JSON saved to path: " + localFile);
-	//     }
-	// }).then(function(){
- //        knox.putFile(localFile, awsFile, {'Content-Type': 'application/json', 'x-amz-acl': 'public-read' }, function(err, result) {
- //            if (200 == result.statusCode) { console.log('Uploaded to amazon S3'); }
- //            else { console.log('Failed to upload file to Amazon S3'); }
- //        });
- //    });
+ 	fs.writeFile(localFile, JSON.stringify(val, null, 4), function(err) {
+	    if(err) {
+	      console.log(err);
+	    } else {
+	       
+            upload = new MultiPartUpload(
+                {
+                    client: client,
+                    objectName: awsFile, // Amazon S3 object name
+                    file: localFile,
+                    headers: { 'x-amz-acl': 'public-read' }
+                },
+            // Callback handler
+                function(err, body) {
+                    console.log("JSON saved to path: " + localFile);
+                    // If successful, will return body, containing Location, Bucket, Key, ETag and size of the object
+                    console.log(body);
+                      // {
+                      //     Location: 'http://Example-Bucket.s3.amazonaws.com/destination.txt',
+                      //     Bucket: 'Example-Bucket',
+                      //     Key: 'destination.txt',
+                      //     ETag: '"3858f62230ac3c915f300c664312c11f-9"',
+                      //     size: 7242880
+                      // }
+                    
+                }
+            );
+	    }
+	});
 
     
 
