@@ -1,4 +1,4 @@
-var table = $('#data-table'),
+ var table = $('#data-table'),
     thead = $('<thead></thead>'),
     tbody = $('<tbody></tbody>'),
     headline = $('.container h1'),
